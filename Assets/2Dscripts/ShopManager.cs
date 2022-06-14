@@ -66,8 +66,6 @@ public class ShopManager : MonoBehaviour
             gameManager.delete += 0.5f;
         });
     }
-
-    // Update is called once per frame
     void Update()
     {
         ItemShopColor();
