@@ -5,7 +5,7 @@ using UnityEngine;
 public class GatyaTimeText : MonoBehaviour
 {
     [SerializeField]GatyaManager gatyaManager;
-    float time = 10.0f;
+    float time = 10;
     void Start()
     {
         
