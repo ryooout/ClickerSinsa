@@ -17,8 +17,8 @@ public class GatyaManager : MonoBehaviour
     int i1 = 40;
     int i2 = 60;
     int i3 = 80;
-    GameObject katura;
-    GameObject timerObj;
+    GameObject katura = default;
+    GameObject timerObj = default;
     void Start()
     {
         timerObj = GameObject.Find("GatyaTimer");
