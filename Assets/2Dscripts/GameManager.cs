@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private int i;
     public float span = 2.5f;
-    private float time = 0;
-    public int score = 0;
+    private float time;
+    public int score;
     public float delete = 1.0f;
     [SerializeField] ShopManager shop = default;
     [SerializeField]GameObject[]ojisan = default;
