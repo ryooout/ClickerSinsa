@@ -5,7 +5,7 @@ using UnityEngine;
 public class AutoAdd : MonoBehaviour
 {
     [SerializeField]GameManager gameManager = default;
-    float time;
+    float time = 0;
     float span = 1.0f;
    public int number = 0;
     void Start()
