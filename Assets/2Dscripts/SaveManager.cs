@@ -23,11 +23,6 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt("SCORE", gameManager.score);
         PlayerPrefs.SetInt("NUMBER", autoAdd.number);
     }
-    /*public void Load()
-    {
-        var save = LocalData
-    }*/
-    // Update is called once per frame
     void Update()
     {
         
