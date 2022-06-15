@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] GameManager gameManager = default;
-    DeleteManager deleteManager;
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] Button[] shopButton = default;
     [SerializeField] GameObject AddObj = default;
@@ -48,11 +47,6 @@ public class ShopManager : MonoBehaviour
             gameManager.score -= supplement;
             supplement += 30;
             autoAdd.number += 5;
-            if(gameManager.span>0)
-            {gameManager.span -= 0.1f;}
-            else
-            {gameManager.span = 0.1f;}
-
             gameManager.delete += 0.2f;
         });
         shopButton[3].onClick.AddListener(() =>
