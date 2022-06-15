@@ -65,22 +65,26 @@ public class GatyaManager : MonoBehaviour
                 autoObj.SetActive(true);
                 if (i==0)//black
                 {
-                    autoAdd.number += i0;
+                    autoAdd.gatyaNumber += i0;
+                    Debug.Log(autoAdd.number);
                     gameManager.span = 0.7f;
                 }
                 else if (i == 1)//katura
                 {
-                    autoAdd.number += i1;
+                    autoAdd.gatyaNumber += i1;
+                    Debug.Log(autoAdd.number);
                     gameManager.span = 0.8f;
                 }
                 else if (i == 2)//short
                 { 
-                    autoAdd.number += i2;
+                    autoAdd.gatyaNumber += i2;
+                    Debug.Log(autoAdd.number);
                     gameManager.span = 0.9f;
                 }
                 else if(i == 3)//short2
                 {
-                    autoAdd.number += i3;
+                    autoAdd.gatyaNumber += i3;
+                    Debug.Log(autoAdd.number);
                     gameManager.span = 1.0f;
                 }
             }
@@ -88,8 +92,8 @@ public class GatyaManager : MonoBehaviour
         else if(gameManager.score < 1000||timerObj.activeSelf)
         {
             notRotate.gameObject.SetActive(true);
-            Invoke(nameof(NotRotate), 2.0f);
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.red;
+            Invoke(nameof(NotRotate), 2.0f);
         }
     }
    public void Generater()
@@ -99,23 +103,24 @@ public class GatyaManager : MonoBehaviour
         gatyaPrefab.GetComponent<Renderer>().material.color = Color.white;
         if (i == 0)
         {
-            autoAdd.number -= i0;
+            autoAdd.gatyaNumber = 0;
         }
         else if (i == 1)
         {
-            autoAdd.number -= i1;
+            autoAdd.gatyaNumber = 0;
         }
         else if (i == 2)
         {
-            autoAdd.number -= i2;
+            autoAdd.gatyaNumber = 0;
         }
         else if (i == 3)
         {
-            autoAdd.number -= i3;
+            autoAdd.gatyaNumber = 0;
         }
     }
     void NotRotate()
     {
         notRotate.gameObject.SetActive(false);
+        gatyaPrefab.GetComponent<Renderer>().material.color = Color.white;
     }
 }

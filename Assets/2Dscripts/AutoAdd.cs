@@ -8,6 +8,7 @@ public class AutoAdd : MonoBehaviour
     float time = 0;
     float span = 1.0f;
    public int number = 0;
+    public int gatyaNumber = 0;
     void Start()
     {
         
@@ -17,6 +18,7 @@ public class AutoAdd : MonoBehaviour
     void Update()
     {
         AddAuto();
+        GatyaAdd();
     }
     public void AddAuto()
     {
@@ -25,6 +27,15 @@ public class AutoAdd : MonoBehaviour
         {
            gameManager.score += number; 
             time=0;
+        }
+    }
+    public void GatyaAdd()
+    {
+        time += Time.deltaTime;
+        if (time > span)
+        {
+            gameManager.score += gatyaNumber;
+            time = 0;
         }
     }
 }
