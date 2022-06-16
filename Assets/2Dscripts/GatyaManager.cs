@@ -94,6 +94,7 @@ public class GatyaManager : MonoBehaviour
             notRotate.gameObject.SetActive(true);
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.red;
             Invoke(nameof(NotRotate), 2.0f);
+            gameManager.span = 1.5f;
         }
     }
    public void Generater()
@@ -104,18 +105,22 @@ public class GatyaManager : MonoBehaviour
         if (i == 0)
         {
             autoAdd.gatyaNumber = 0;
+            gameManager.span = 1.5f;
         }
         else if (i == 1)
         {
             autoAdd.gatyaNumber = 0;
+            gameManager.span = 1.5f;
         }
         else if (i == 2)
         {
             autoAdd.gatyaNumber = 0;
+            gameManager.span = 1.5f;
         }
         else if (i == 3)
         {
             autoAdd.gatyaNumber = 0;
+            gameManager.span = 1.5f;
         }
     }
     void NotRotate()
