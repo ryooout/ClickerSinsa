@@ -6,7 +6,10 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] GameManager gameManager = default;
     [SerializeField] AutoAdd autoAdd = default;
+    /// <summary>アイテムボタン一覧</summary>
     [SerializeField] Button[] shopButton = default;
+    /// <summary>shopのopen,close</summary>
+    [SerializeField] GameObject[]shopOpen = default;
     [SerializeField] GameObject AddObj = default;
     /// <summary>杖</summary>
     public int cane = 50;
@@ -19,6 +22,9 @@ public class ShopManager : MonoBehaviour
     private void Awake()
     {
        AddObj.SetActive(false);
+        shopOpen[0].SetActive(true);//ショップオープン
+        shopOpen[1].SetActive(false);//ショップクローズ
+        shopOpen[2].SetActive(false);//ショップアイテム一覧
     }
     void Start()
     {
@@ -63,6 +69,18 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         ItemShopColor();
+    }
+    public void ShopOpen()
+    {
+        shopOpen[0].SetActive(false);
+        shopOpen[1].SetActive(true);
+        shopOpen[2].SetActive(true);
+    }
+    public void ShopClose()
+    {
+        shopOpen[0].SetActive(true);
+        shopOpen[1].SetActive(false);
+        shopOpen[2].SetActive(false);
     }
     public void ItemShopColor()
     {
