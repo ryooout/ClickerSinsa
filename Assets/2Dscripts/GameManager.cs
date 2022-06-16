@@ -13,15 +13,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] ShopManager shop = default;
     [SerializeField]GameObject[]ojisan = default;
     [SerializeField] TextMeshProUGUI scoreText = default;
-    public Text[] shopText;
-    public GameObject particle;
+    public Text[] shopText = default;
+    public GameObject particle = default;
     void Start()
     {
-        scoreText.text = "親密度:"+score.ToString();
-        shopText[0].text = "杖\n親密度:" + shop.cane.ToString();
-        shopText[1].text = "車いす\n親密度:" + shop.wheelchair.ToString();
-        shopText[2].text = "サプリ\n親密度:" + shop.supplement.ToString();
-        shopText[3].text = "お年玉を送る\n親密度:" + shop.money.ToString();
     }
      
     // Update is called once per frame
