@@ -70,40 +70,27 @@ public class ShopManager : MonoBehaviour
     {
         ItemShopColor();
     }
+    /// <summary>’l‚É‚æ‚Á‚ÄF‚ª•Ï‚í‚é</summary>
     public void ItemShopColor()
     {
         if (gameManager.score >= cane)
-        {
-            gameManager.shopText[0].color = Color.black;
-        }
+        {gameManager.shopText[0].color = Color.black;}
         else
-        {
-            gameManager.shopText[0].color = Color.red;
-        }
-        if (gameManager.score >= wheelchair)
-        {
-            gameManager.shopText[1].color = Color.black;
-        }
-        else
-        {
-            gameManager.shopText[1].color = Color.red;
-        }
-        if (gameManager.score >= supplement)
-        {
-            gameManager.shopText[2].color = Color.black;
+        {gameManager.shopText[0].color = Color.red;}
 
-        }
+        if (gameManager.score >= wheelchair)
+        {gameManager.shopText[1].color = Color.black;}
         else
-        {
-            gameManager.shopText[2].color = Color.red;
-        }
-            if (gameManager.score >= money)
-            {
-                gameManager.shopText[3].color = Color.black;
-            }
+        {gameManager.shopText[1].color = Color.red;}
+
+        if (gameManager.score >= supplement)
+        {gameManager.shopText[2].color = Color.black;}
+        else
+        {gameManager.shopText[2].color = Color.red;}
+
+        if (gameManager.score >= money)
+        {gameManager.shopText[3].color = Color.black;}
             else
-            {
-                gameManager.shopText[3].color = Color.red;
-            }
+            {gameManager.shopText[3].color = Color.red;}
     }
 }
