@@ -66,24 +66,28 @@ public class GatyaManager : MonoBehaviour
                 if (i==0)//black
                 {
                     autoAdd.gatyaNumber += i0;
+                    Debug.Log(autoAdd.gatyaNumber += i0);
                     gameManager.span = 0.7f;
                     gatyaResultText[0].gameObject.SetActive(true);
                 }
                 else if (i == 1)//gold
                 {
                     autoAdd.gatyaNumber += i1;
+                    Debug.Log(autoAdd.gatyaNumber += i1);
                     gameManager.span = 0.8f;
                     gatyaResultText[1].gameObject.SetActive(true);
                 }
                 else if (i == 2)//short
                 { 
                     autoAdd.gatyaNumber += i2;
+                    Debug.Log(autoAdd.gatyaNumber += i2);
                     gameManager.span = 0.9f;
                     gatyaResultText[2].gameObject.SetActive(true);
                 }
                 else if(i == 3)//short2
                 {
                     autoAdd.gatyaNumber += i3;
+                    Debug.Log(autoAdd.gatyaNumber += i3);
                     gameManager.span = 1.0f;
                     gatyaResultText[3].gameObject.SetActive(true);
                 }
