@@ -13,6 +13,7 @@ public class SaveManager : MonoBehaviour
     {
         gameManager.score = PlayerPrefs.GetInt("SCORE", 0);
         autoAdd.number = PlayerPrefs.GetInt("NUMBER", 0);
+        gameManager.delete = PlayerPrefs.GetFloat("DELETE",0);
         if(autoAdd.number > 0)
         {
             AddObj.SetActive(true);
@@ -23,6 +24,7 @@ public class SaveManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SCORE", gameManager.score);
         PlayerPrefs.SetInt("NUMBER", autoAdd.number);
+        PlayerPrefs.SetFloat("DELETE", gameManager.delete);
     }
     void Update()
     {
@@ -33,5 +35,6 @@ public class SaveManager : MonoBehaviour
     {
         gameManager.score = 0;
         autoAdd.number = 0;
+        gameManager.delete = 1.0f;
     }
 }
