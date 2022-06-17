@@ -62,7 +62,7 @@ public class ShopManager : MonoBehaviour
             gameManager.score -= money;
             money += 50;
             autoAdd.number += 15;
-            gameManager.score += 200;
+            gameManager.AddScore(200);
             gameManager.delete += 0.5f;
         });
     }
