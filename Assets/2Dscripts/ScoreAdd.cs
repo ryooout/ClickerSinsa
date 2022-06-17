@@ -14,33 +14,37 @@ public class ScoreAdd : MonoBehaviour
     }
     public void OnClick()
     {
-        if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan")
-        {
-            Instantiate(gameManager.particle, transform.position, transform.rotation);
-            gameManager.AddScore(2);
-            Debug.Log(gameManager.score);
-            gameObject.GetComponent<Renderer>().enabled = false;
-        }
-        else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan1")
+        if (Input.GetMouseButtonUp(0)&&gameObject.tag == "Ojisan")
         {
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(5);
             Debug.Log(gameManager.score);
             gameObject.GetComponent<Renderer>().enabled = false;
         }
+        else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan1")
+        {
+            Instantiate(gameManager.particle, transform.position, transform.rotation);
+            gameManager.AddScore(10);
+            Debug.Log(gameManager.score);
+            gameObject.GetComponent<Renderer>().enabled = false;
+        }
         else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan2")
         {
             Instantiate(gameManager.particle, transform.position, transform.rotation);
-            gameManager.AddScore(9);
+            gameManager.AddScore(15);
             Debug.Log(gameManager.score);
             gameObject.GetComponent<Renderer>().enabled = false;
         }
         else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan3")
         {
             Instantiate(gameManager.particle, transform.position, transform.rotation);
-            gameManager.AddScore(11);
+            gameManager.AddScore(20);
             Debug.Log(gameManager.score);
             gameObject.GetComponent<Renderer>().enabled = false;
+        }
+        else if(Input.GetMouseButtonUp(0) && gameObject.tag =="DefaultOjisan")
+        {
+            gameManager.AddScore(1);
         }
     }
 }
