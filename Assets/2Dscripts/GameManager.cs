@@ -6,7 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     private int i;
-    public float span = 2.5f;
+    public float span = 1.5f;
     private float time;
     public int score;
     public float delete = 1.0f;
