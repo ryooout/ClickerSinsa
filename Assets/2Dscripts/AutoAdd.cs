@@ -20,6 +20,7 @@ public class AutoAdd : MonoBehaviour
         AddAuto();
         GatyaAdd();
     }
+    /// <summary>ƒVƒ‡ƒbƒv‚É‚æ‚éŽ©“®‰ÁŽZ</summary>
     public void AddAuto()
     {
         time+=Time.deltaTime;
@@ -29,6 +30,7 @@ public class AutoAdd : MonoBehaviour
             time=0;
         }
     }
+    /// <summary>ƒKƒ`ƒƒ‚É‚æ‚éŽ©“®‰ÁŽZ</summary>
     public void GatyaAdd()
     {
         time += Time.deltaTime;
