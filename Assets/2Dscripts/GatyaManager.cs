@@ -8,9 +8,14 @@ public class GatyaManager : MonoBehaviour
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] GameObject autoObj = default;
     [SerializeField]GameObject  gatyaPrefab = default;
+    /// <summary>ガチャから出るもの</summary>
     [SerializeField]GameObject[]katuraPrefab = default;
+    /// <summary>ガチャ操作のボタン</summary>
     [SerializeField] Button[] gatyaButton = default;
+    /// <summary>効果時間</summary>
     public Text gatyaTimer = default;
+    /// <summary>ガチャ結果</summary>
+    [SerializeField] Text[]gatyaResultText = default;
     [SerializeField] Text notRotate = default;
     int i;
     int i0 = 20;
@@ -19,6 +24,13 @@ public class GatyaManager : MonoBehaviour
     int i3 = 80;
     GameObject katura = default;
     GameObject timerObj = default;
+    private void Awake()
+    {
+        gatyaResultText[0].gameObject.SetActive(false);
+        gatyaResultText[1].gameObject.SetActive(false);
+        gatyaResultText[2].gameObject.SetActive(false);
+        gatyaResultText[3].gameObject.SetActive(false);
+    }
     void Start()
     {
         timerObj = GameObject.Find("GatyaTimer");
@@ -43,34 +55,34 @@ public class GatyaManager : MonoBehaviour
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
            katura = Instantiate(katuraPrefab[i], new Vector2(0, 3), Quaternion.identity);
             gameManager.score -= 1000;
-            Invoke(nameof(Generater), 10.0f);
             if (timerObj.activeSelf)
             {
                 autoObj.SetActive(true);
                 if (i==0)//black
                 {
                     autoAdd.gatyaNumber += i0;
-                    Debug.Log(autoAdd.number);
                     gameManager.span = 0.7f;
+                    gatyaResultText[0].gameObject.SetActive(true);
                 }
-                else if (i == 1)//katura
+                else if (i == 1)//gold
                 {
                     autoAdd.gatyaNumber += i1;
-                    Debug.Log(autoAdd.number);
                     gameManager.span = 0.8f;
+                    gatyaResultText[1].gameObject.SetActive(true);
                 }
                 else if (i == 2)//short
                 { 
                     autoAdd.gatyaNumber += i2;
-                    Debug.Log(autoAdd.number);
                     gameManager.span = 0.9f;
+                    gatyaResultText[2].gameObject.SetActive(true);
                 }
                 else if(i == 3)//short2
                 {
                     autoAdd.gatyaNumber += i3;
-                    Debug.Log(autoAdd.number);
                     gameManager.span = 1.0f;
+                    gatyaResultText[3].gameObject.SetActive(true);
                 }
+                Invoke(nameof(Generater), 10.0f);
             }
         }        
         else if(gameManager.score < 1000||timerObj.activeSelf)
@@ -80,12 +92,17 @@ public class GatyaManager : MonoBehaviour
             Invoke(nameof(NotRotate), 2.0f);
             gameManager.span = 1.5f;
         }
+       
     }
    public void Generater()
     {
         katura.SetActive(false);
         gatyaTimer.gameObject.SetActive(false);
         gatyaPrefab.GetComponent<Renderer>().material.color = Color.white;
+        gatyaResultText[0].gameObject.SetActive(false);
+        gatyaResultText[1].gameObject.SetActive(false);
+        gatyaResultText[2].gameObject.SetActive(false);
+        gatyaResultText[3].gameObject.SetActive(false);
         if (i == 0)
         {
             autoAdd.gatyaNumber = 0;
@@ -94,17 +111,17 @@ public class GatyaManager : MonoBehaviour
         else if (i == 1)
         {
             autoAdd.gatyaNumber = 0;
-            gameManager.span = 1.5f;
+            gameManager.span = 1.5f;          
         }
         else if (i == 2)
         {
             autoAdd.gatyaNumber = 0;
-            gameManager.span = 1.5f;
+            gameManager.span = 1.5f;          
         }
         else if (i == 3)
         {
             autoAdd.gatyaNumber = 0;
-            gameManager.span = 1.5f;
+            gameManager.span = 1.5f;         
         }
     }
     void NotRotate()
