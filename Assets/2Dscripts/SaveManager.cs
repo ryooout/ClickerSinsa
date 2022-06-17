@@ -18,6 +18,7 @@ public class SaveManager : MonoBehaviour
             AddObj.SetActive(true);
         }
     }
+    /// <summary>値の保存</summary>
     void OnDestroy()
     {
         PlayerPrefs.SetInt("SCORE", gameManager.score);
@@ -27,6 +28,7 @@ public class SaveManager : MonoBehaviour
     {
         
     }
+    /// <summary>全値のリセット</summary>
     public void OnReset()
     {
         gameManager.score = 0;
