@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         ScoreText(score);
         StoreText();
     }
+    /// <summary>プレファブの生成</summary>
     private void Generation()
     {
         time += Time.deltaTime;
