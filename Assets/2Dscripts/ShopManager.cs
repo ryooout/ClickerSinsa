@@ -53,7 +53,7 @@ public class ShopManager : MonoBehaviour
             gameManager.score -= supplement;
             supplement += 30;
             autoAdd.number += 5;
-            gameManager.delete += 0.2f;
+            gameManager.delete += 0.05f;
         });
         shopButton[3].onClick.AddListener(() =>
         {
@@ -63,7 +63,7 @@ public class ShopManager : MonoBehaviour
             money += 50;
             autoAdd.number += 15;
             gameManager.AddScore(200);
-            gameManager.delete += 0.5f;
+            gameManager.delete += 0.2f;
         });
     }
     void Update()
