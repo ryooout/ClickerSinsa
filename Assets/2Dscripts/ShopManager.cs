@@ -70,18 +70,6 @@ public class ShopManager : MonoBehaviour
     {
         ItemShopColor();
     }
-    public void ShopOpen()
-    {
-        shopOpen[0].SetActive(false);
-        shopOpen[1].SetActive(true);
-        shopOpen[2].SetActive(true);
-    }
-    public void ShopClose()
-    {
-        shopOpen[0].SetActive(true);
-        shopOpen[1].SetActive(false);
-        shopOpen[2].SetActive(false);
-    }
     public void ItemShopColor()
     {
         if (gameManager.score >= cane)
