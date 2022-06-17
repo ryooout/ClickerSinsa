@@ -17,11 +17,14 @@ public class GatyaManager : MonoBehaviour
     /// <summary>ガチャ結果</summary>
     [SerializeField] Text[]gatyaResultText = default;
     [SerializeField] Text notRotate = default;
+    /// <summary>ガチャの値段表示 </summary>
+    [SerializeField] Text gatyaPriceText = default;
     int i;
     int i0 = 20;
     int i1 = 40;
     int i2 = 60;
     int i3 = 80;
+    public int gatyaPrice = 1000;
     GameObject katura = default;
     GameObject timerObj = default;
     private void Awake()
@@ -45,6 +48,7 @@ public class GatyaManager : MonoBehaviour
     void Update()
     {
         i = Random.Range(0, katuraPrefab.Length);
+        gatyaPriceText.text = "       " + "ガチャ\n親密度" + gatyaPrice + "爺";
     }
     public void GatyaClick()
     { 
@@ -54,7 +58,8 @@ public class GatyaManager : MonoBehaviour
             notRotate.gameObject.SetActive(false);
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
            katura = Instantiate(katuraPrefab[i], new Vector2(0, 3), Quaternion.identity);
-            gameManager.score -= 1000;
+            gameManager.score -= gatyaPrice;
+            gatyaPrice += 100;
             if (timerObj.activeSelf)
             {
                 autoObj.SetActive(true);
