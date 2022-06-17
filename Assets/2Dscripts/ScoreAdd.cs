@@ -16,7 +16,6 @@ public class ScoreAdd : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan")
         {
-            gameObject.SetActive(false);
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(2);
             Debug.Log(gameManager.score);
@@ -24,7 +23,6 @@ public class ScoreAdd : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan1")
         {
-            gameObject.SetActive(false);
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(5);
             Debug.Log(gameManager.score);
@@ -32,7 +30,6 @@ public class ScoreAdd : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan2")
         {
-            gameObject.SetActive(false);
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(9);
             Debug.Log(gameManager.score);
@@ -40,7 +37,6 @@ public class ScoreAdd : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan3")
         {
-            gameObject.SetActive(false);
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(11);
             Debug.Log(gameManager.score);
