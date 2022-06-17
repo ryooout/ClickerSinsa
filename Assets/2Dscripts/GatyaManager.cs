@@ -34,22 +34,6 @@ public class GatyaManager : MonoBehaviour
     {
         i = Random.Range(0, katuraPrefab.Length);
     }
-    public void OnClick()
-    {
-        gatyaPrefab.SetActive(true);
-        gatyaButton[0].gameObject.SetActive(false);
-        gatyaButton[1].gameObject.SetActive(true);
-    }
-    public void Close()
-    {
-        gatyaPrefab.SetActive(false);
-        gatyaButton[0].gameObject.SetActive(true);
-        gatyaButton[1].gameObject.SetActive(false);
-        if(notRotate)
-        {
-            notRotate.gameObject.SetActive(false);
-        }
-    }
     public void GatyaClick()
     { 
         if (gameManager.score >= 1000&&!timerObj.activeSelf)
