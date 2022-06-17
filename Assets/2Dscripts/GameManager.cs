@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     }
     private void ScoreText(int score)
     {
-        scoreText.text = "親密度:"+score.ToString();
+        scoreText.text = "親密度:"+score.ToString()+"爺";
     }
     public void AddScore(int addScore)
     {
