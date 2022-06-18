@@ -34,7 +34,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < cane) return;
             AddObj.SetActive(true);
             gameManager.score -= cane;
-            cane += 5;
+            cane += 13;
             autoAdd.number++;
             
         });
@@ -43,7 +43,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < wheelchair) return;
             AddObj.SetActive(true);
             gameManager.score -= wheelchair;
-            wheelchair += 15;
+            wheelchair += 33;
             autoAdd.number += 3;
         });
         shopButton[2].onClick.AddListener(() =>
@@ -51,7 +51,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < supplement) return;
             AddObj.SetActive(true);
             gameManager.score -= supplement;
-            supplement += 30;
+            supplement += 63;
             autoAdd.number += 5;
             gameManager.delete += 0.05f;
         });
@@ -60,7 +60,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < money) return;
             AddObj.SetActive(true);
             gameManager.score -= money;
-            money += 50;
+            money += 103;
             autoAdd.number += 15;
             gameManager.AddScore(200);
             gameManager.delete += 0.2f;
