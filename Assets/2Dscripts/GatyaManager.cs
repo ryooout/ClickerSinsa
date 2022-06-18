@@ -51,7 +51,7 @@ public class GatyaManager : MonoBehaviour
     void Update()
     {
         i = Random.Range(0, katuraPrefab.Length);
-        gatyaPriceText.text = "       " + "ガチャ\n親密度" + gatyaPrice + "爺";
+        gatyaPriceText.text = "       " + "ガチャ\n親密度:" + gatyaPrice + "爺";
     }
     public void GatyaClick()
     { 
