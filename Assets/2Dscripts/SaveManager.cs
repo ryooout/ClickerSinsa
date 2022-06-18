@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField]GameManager gameManager = default;
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] GameObject AddObj = default;
+    /// <summary>’l‚Ìƒ[ƒh </summary>
     void Start()
     {
         gameManager.score = PlayerPrefs.GetInt("SCORE", 0);
