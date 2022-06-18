@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: -4529518522349411262}
   - component: {fileID: -4108482174184093148}
   - component: {fileID: 2481806832290749917}
-  - component: {fileID: 7846664172014431457}
   m_Layer: 0
   m_Name: Ojisan3
   m_TagString: Ojisan2
@@ -142,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &-4108482174184093148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0501e2b5a7f34a04594374fb9684a213, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -291,16 +291,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7846664172014431457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2582120030706787004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 347b54b87cd721d43a69d515d6494b5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 0501e2b5a7f34a04594374fb9684a213, type: 3}
