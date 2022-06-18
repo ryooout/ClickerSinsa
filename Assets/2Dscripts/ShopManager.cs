@@ -12,13 +12,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameObject[]shopOpen = default;
     [SerializeField] GameObject AddObj = default;
     /// <summary>èÒ</summary>
-    public int cane = 50;
+    public int cane = 10;
     /// <summary>é‘Ç¢Ç∑</summary>
-    public int wheelchair = 150;
+    public int wheelchair = 100;
     /// <summary>ÉTÉvÉä</summary>
-    public int supplement = 300;
+    public int supplement = 1000;
     /// <summary>Ç®ã‡</summary>
-    public int money = 500;
+    public int money = 5000;
     private void Awake()
     {
        AddObj.SetActive(false);
@@ -43,7 +43,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < wheelchair) return;
             AddObj.SetActive(true);
             gameManager.score -= wheelchair;
-            wheelchair += 33;
+            wheelchair += 133;
             autoAdd.number += 3;
         });
         shopButton[2].onClick.AddListener(() =>
@@ -51,7 +51,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < supplement) return;
             AddObj.SetActive(true);
             gameManager.score -= supplement;
-            supplement += 63;
+            supplement += 1163;
             autoAdd.number += 5;
             gameManager.delete += 0.05f;
         });
@@ -60,9 +60,8 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < money) return;
             AddObj.SetActive(true);
             gameManager.score -= money;
-            money += 103;
+            money += 2103;
             autoAdd.number += 15;
-            gameManager.AddScore(200);
             gameManager.delete += 0.2f;
         });
     }
