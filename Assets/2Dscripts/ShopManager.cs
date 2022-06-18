@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameManager gameManager = default;
     [SerializeField] AutoAdd autoAdd = default;
     /// <summary>アイテムボタン一覧</summary>
-    [SerializeField] Button[] shopButton = default;
+    public Button[] shopButton = default;
     /// <summary>shopのopen,close</summary>
     [SerializeField] GameObject[]shopOpen = default;
     [SerializeField] GameObject AddObj = default;
