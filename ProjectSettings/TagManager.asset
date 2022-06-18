@@ -13,6 +13,7 @@ TagManager:
   - Item
   - Shop
   - Gatya
+  - DefaultOjisan
   layers:
   - Default
   - TransparentFX
