@@ -8,18 +8,23 @@ public class GatyaManager : MonoBehaviour
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] GameObject autoObj = default;
     [SerializeField]GameObject  gatyaPrefab = default;
-    /// <summary>ガチャから出るもの</summary>
-    [SerializeField]GameObject[]katuraPrefab = default;
-    /// <summary>ガチャ操作のボタン</summary>
-    [SerializeField] Button[] gatyaButton = default;
     /// <summary>効果時間</summary>
     public Text gatyaTimer = default;
-    /// <summary>ガチャ結果</summary>
-    [SerializeField] Text[]gatyaResultText = default;
     [SerializeField] Text notRotate = default;
     /// <summary>ガチャの値段表示 </summary>
     [SerializeField] Text gatyaPriceText = default;
+    /// <summary>効果音 </summary>
+    AudioSource gatyaAudioSource = null;
+    /// <summary>ハート型のオブジェクト </summary>
+    [SerializeField] GameObject heart = default;
+    /// <summary>ガチャから出るもの</summary>
+    [SerializeField] GameObject[] katuraPrefab = default;
+    /// <summary>ガチャ操作のボタン</summary>
+    [SerializeField] Button[] gatyaButton = default;
+    /// <summary>ガチャ結果</summary>
+    [SerializeField] Text[] gatyaResultText = default;
     int i;
+    /// <summary>1秒あたりの値の増加量</summary>
     int i0 = 20;
     int i1 = 40;
     int i2 = 60;
@@ -29,10 +34,7 @@ public class GatyaManager : MonoBehaviour
     GameObject timerObj = default;
     private void Awake()
     {
-        gatyaResultText[0].gameObject.SetActive(false);
-        gatyaResultText[1].gameObject.SetActive(false);
-        gatyaResultText[2].gameObject.SetActive(false);
-        gatyaResultText[3].gameObject.SetActive(false);
+        gatyaAudioSource = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -56,6 +58,8 @@ public class GatyaManager : MonoBehaviour
         {
             gatyaTimer.gameObject.SetActive(true);
             notRotate.gameObject.SetActive(false);
+            heart.SetActive(true);
+            gatyaAudioSource.Play();
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
            katura = Instantiate(katuraPrefab[i], new Vector2(0, 3), Quaternion.identity);
             gameManager.score -= gatyaPrice;
@@ -107,6 +111,7 @@ public class GatyaManager : MonoBehaviour
     {
         katura.SetActive(false);
         gatyaTimer.gameObject.SetActive(false);
+        heart.SetActive(false);
         gatyaPrefab.GetComponent<Renderer>().material.color = Color.white;
         gatyaResultText[0].gameObject.SetActive(false);
         gatyaResultText[1].gameObject.SetActive(false);
