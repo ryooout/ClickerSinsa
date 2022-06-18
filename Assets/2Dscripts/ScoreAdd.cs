@@ -14,31 +14,31 @@ public class ScoreAdd : MonoBehaviour
     }
     public void OnClick()
     {
-        if (Input.GetMouseButtonUp(0)&&gameObject.tag == "Ojisan")
+        if (gameObject.tag == "Ojisan")
         {
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(5);
             Debug.Log(gameManager.score);
         }
-        else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan1")
+        else if (gameObject.tag == "Ojisan1")
         {
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(10);
             Debug.Log(gameManager.score);
         }
-        else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan2")
+        else if (gameObject.tag == "Ojisan2")
         {
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(15);
             Debug.Log(gameManager.score);
         }
-        else if (Input.GetMouseButtonUp(0) && gameObject.tag == "Ojisan3")
+        else if (gameObject.tag == "Ojisan3")
         {
             Instantiate(gameManager.particle, transform.position, transform.rotation);
             gameManager.AddScore(20);
             Debug.Log(gameManager.score);
         }
-        else if(Input.GetMouseButtonUp(0) && gameObject.tag =="DefaultOjisan")
+        else if(gameObject.tag =="DefaultOjisan")
         {
             gameManager.AddScore(1);
             Debug.Log(gameManager.score);
