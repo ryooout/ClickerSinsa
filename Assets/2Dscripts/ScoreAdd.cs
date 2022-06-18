@@ -41,6 +41,7 @@ public class ScoreAdd : MonoBehaviour
         else if(Input.GetMouseButtonUp(0) && gameObject.tag =="DefaultOjisan")
         {
             gameManager.AddScore(1);
+            Debug.Log(gameManager.score);
         }
     }
 }
