@@ -15,6 +15,7 @@ public class GatyaManager : MonoBehaviour
     [SerializeField] Text gatyaPriceText = default;
     /// <summary>効果音 </summary>
     AudioSource gatyaAudioSource = null;
+    public AudioClip[]gatyaSound = default;
     /// <summary>ハート型のオブジェクト </summary>
     [SerializeField] GameObject heart = default;
     /// <summary>ガチャから出るもの</summary>
@@ -59,7 +60,7 @@ public class GatyaManager : MonoBehaviour
             gatyaTimer.gameObject.SetActive(true);
             notRotate.gameObject.SetActive(false);
             heart.SetActive(true);
-            gatyaAudioSource.Play();
+            gatyaAudioSource.PlayOneShot(gatyaSound[0]);
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
            katura = Instantiate(katuraPrefab[i], new Vector2(0, 3), Quaternion.identity);
             gameManager.score -= gatyaPrice;
@@ -109,6 +110,7 @@ public class GatyaManager : MonoBehaviour
     }
    public void Generater()
     {
+        gatyaAudioSource.PlayOneShot(gatyaSound[1]);
         katura.SetActive(false);
         gatyaTimer.gameObject.SetActive(false);
         heart.SetActive(false);
