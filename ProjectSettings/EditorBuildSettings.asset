@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/2DclickerScene.unity
+    guid: 9c216dffb7be62744ace5468a5fa02dd
+  - enabled: 1
+    path: Assets/Scenes/2DCollectionScene.unity
+    guid: 02e2fd5de03be614c905802ee4c76649
   m_configObjects: {}
