@@ -11,6 +11,8 @@ public class ShopManager : MonoBehaviour
     /// <summary>shopのopen,close</summary>
     [SerializeField] GameObject[]shopOpen = default;
     [SerializeField] GameObject AddObj = default;
+    /// <summary>購入回数</summary>
+    [SerializeField] Text []itemBuyCount = default;
     /// <summary>杖</summary>
     public int cane = 10;
     /// <summary>車いす</summary>
@@ -28,12 +30,21 @@ public class ShopManager : MonoBehaviour
     float y1 = 0;
     float y2 = -2;
     float y3 = -4;
+    int count = 0;
+    int count1 = 0;
+    int count2 = 0;
+    int count3 = 0;
+
     private void Awake()
     {
        AddObj.SetActive(false);
         shopOpen[0].SetActive(true);//ショップオープン
         shopOpen[1].SetActive(false);//ショップクローズ
         shopOpen[2].SetActive(false);//ショップアイテム一覧
+        itemBuyCount[0].text = "購入回数:" + count.ToString() + "回";
+        itemBuyCount[1].text = "購入回数:" + count1.ToString() + "回";
+        itemBuyCount[2].text = "購入回数:" + count2.ToString() + "回";
+        itemBuyCount[3].text = "購入回数:" + count3.ToString() + "回";
     }
     void Start()
     {
@@ -41,6 +52,8 @@ public class ShopManager : MonoBehaviour
         shopButton[0].onClick.AddListener(() =>
         {　　　　　　　　　　　　　　　　　//値を返す
             if (gameManager.score < cane) return;
+            count++;
+            itemBuyCount[0].text ="購入回数:"+ count.ToString()+"回";
             AddObj.SetActive(true);
             gameManager.score -= cane;
             cane += 13;
@@ -53,6 +66,8 @@ public class ShopManager : MonoBehaviour
         shopButton[1].onClick.AddListener(() =>
         {　　　　　　　　　　　　　　　　　　　
             if (gameManager.score < wheelchair) return;
+            count1++;
+            itemBuyCount[1].text = "購入回数:"+count1.ToString() + "回";
             AddObj.SetActive(true);
             gameManager.score -= wheelchair;
             wheelchair += 53;
@@ -65,6 +80,8 @@ public class ShopManager : MonoBehaviour
         shopButton[2].onClick.AddListener(() =>
         {                                        
             if (gameManager.score < supplement) return;
+            count2++;
+            itemBuyCount[2].text = "購入回数:" + count2.ToString() + "回";
             AddObj.SetActive(true);
             gameManager.score -= supplement;
             supplement += 563;
@@ -78,6 +95,8 @@ public class ShopManager : MonoBehaviour
         shopButton[3].onClick.AddListener(() =>
         {
             if (gameManager.score < money) return;
+            count3++;
+            itemBuyCount[3].text = "購入回数:" + count3.ToString() + "回";
             AddObj.SetActive(true);
             gameManager.score -= money;
             money += 2103;
