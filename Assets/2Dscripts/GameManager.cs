@@ -51,5 +51,4 @@ public class GameManager : MonoBehaviour
         shopText[2].text = "サプリ\n親密度:" + shop.supplement.ToString()+ "爺";
         shopText[3].text = "お年玉を送る\n親密度:" + shop.money.ToString()+ "爺";
    }
-
 }
