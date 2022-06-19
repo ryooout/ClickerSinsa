@@ -9,13 +9,18 @@ public class SaveManager : MonoBehaviour
     [SerializeField]GameManager gameManager = default;
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] GameObject AddObj = default;
+    [SerializeField] ShopManager shopManager = default;
     /// <summary>ílÇÃÉçÅ[Éh </summary>
     void Start()
     {
         gameManager.score = PlayerPrefs.GetInt("SCORE", 0);
         autoAdd.number = PlayerPrefs.GetInt("NUMBER", 0);
         gameManager.delete = PlayerPrefs.GetFloat("DELETE",0);
-        if(autoAdd.number > 0)
+        shopManager.cane = PlayerPrefs.GetInt("SHOP", 0);
+        shopManager.wheelchair = PlayerPrefs.GetInt("SHOP1", 0);
+        shopManager.supplement = PlayerPrefs.GetInt("SHOP2", 0);
+        shopManager.money = PlayerPrefs.GetInt("SHOP3",0);
+        if (autoAdd.number > 0)
         {
             AddObj.SetActive(true);
         }
@@ -26,6 +31,10 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt("SCORE", gameManager.score);
         PlayerPrefs.SetInt("NUMBER", autoAdd.number);
         PlayerPrefs.SetFloat("DELETE", gameManager.delete);
+        PlayerPrefs.SetInt("SHOP", shopManager.cane);
+        PlayerPrefs.SetInt("SHOP1", shopManager.wheelchair);
+        PlayerPrefs.SetInt("SHOP2", shopManager.supplement);
+        PlayerPrefs.SetInt("SHOP3", shopManager.money);
     }
     void Update()
     {
@@ -37,5 +46,9 @@ public class SaveManager : MonoBehaviour
         gameManager.score = 0;
         autoAdd.number = 0;
         gameManager.delete = 1.0f;
+        shopManager.cane = 10;
+        shopManager.wheelchair = 100;
+        shopManager.supplement = 1000;
+        shopManager.money = 5000;
     }
 }
