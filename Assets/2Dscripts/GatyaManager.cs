@@ -7,6 +7,7 @@ public class GatyaManager : MonoBehaviour
     [SerializeField]GameManager gameManager = default;
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] GameObject autoObj = default;
+    [SerializeField] GameObject backGroundObj = default;
     [SerializeField]GameObject  gatyaPrefab = default;
     /// <summary>Œø‰ÊŽžŠÔ</summary>
     public Text gatyaTimer = default;
@@ -60,6 +61,7 @@ public class GatyaManager : MonoBehaviour
             gatyaTimer.gameObject.SetActive(true);
             notRotate.gameObject.SetActive(false);
             heart.SetActive(true);
+            backGroundObj.SetActive(true);
             gatyaAudioSource.PlayOneShot(gatyaSound[0]);
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
            katura = Instantiate(katuraPrefab[i], new Vector2(0, 3), Quaternion.identity);
@@ -119,6 +121,7 @@ public class GatyaManager : MonoBehaviour
         gatyaResultText[1].gameObject.SetActive(false);
         gatyaResultText[2].gameObject.SetActive(false);
         gatyaResultText[3].gameObject.SetActive(false);
+        backGroundObj.SetActive(false);
         if (i == 0)
         {
             autoAdd.gatyaNumber = 0;
