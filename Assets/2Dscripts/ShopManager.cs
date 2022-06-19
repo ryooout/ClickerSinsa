@@ -20,10 +20,10 @@ public class ShopManager : MonoBehaviour
     /// <summary>‚¨‹à</summary>
     public int money = 5000;
     [SerializeField] GameObject[] itemPrefab = default;
-    float x0 = -12;
-    float x1 = -12;
-    float x2 = -12;
-    float x3 = -12;
+    float x0 = -11;
+    float x1 = -11;
+    float x2 = -11;
+    float x3 = -11;
     float y0 = 2;
     float y1 = 0;
     float y2 = -2;
@@ -47,7 +47,7 @@ public class ShopManager : MonoBehaviour
             autoAdd.number++;
             Instantiate(itemPrefab[0],new Vector2(x0,y0),Quaternion.identity);
             if (x0 >= 12.0f)
-            { x0 = -12; }
+            { x0 = -11; }
             x0 += 0.15f;
         });
         shopButton[1].onClick.AddListener(() =>
@@ -59,7 +59,7 @@ public class ShopManager : MonoBehaviour
             autoAdd.number += 3;
             Instantiate(itemPrefab[1], new Vector2(x1, y1), Quaternion.identity);
             if (x1 >= 12.0f)
-            { x1 = -12; }
+            { x1 = -11; }
             x1 += 0.3f;
         });
         shopButton[2].onClick.AddListener(() =>
@@ -72,7 +72,7 @@ public class ShopManager : MonoBehaviour
             gameManager.delete += 0.2f;
             Instantiate(itemPrefab[2], new Vector2(x2, y2), Quaternion.identity);
             if (x2 >= 12.0f)
-            { x2 = -12; }
+            { x2 = -11; }
             x2 += 0.3f;
         });
         shopButton[3].onClick.AddListener(() =>
@@ -86,7 +86,7 @@ public class ShopManager : MonoBehaviour
             Instantiate(itemPrefab[3], new Vector2(x3, y3), Quaternion.identity);
             gameManager.AddScore(350);
             if(x3 >= 12.0f)
-            { x3 = -12; }
+            { x3 = -11; }
             x3 += 0.3f;
         });
     }
