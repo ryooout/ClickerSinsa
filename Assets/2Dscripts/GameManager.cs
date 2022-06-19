@@ -15,11 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText = default;
     public Text[] shopText = default;
     public GameObject particle = default;
-    void Start()
+    private void Awake()
     {
     }
-     
-    // Update is called once per frame
     void Update()
     {
         Generation();
