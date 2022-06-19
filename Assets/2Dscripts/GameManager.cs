@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText = default;
     public Text[] shopText = default;
     public GameObject particle = default;
-    private void Awake()
-    {
-    }
     void Update()
     {
         Generation();
@@ -29,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         i = Random.Range(0, ojisan.Length);
-        float x = Random.Range(-11, 11);
+        float x = Random.Range(-10, 10);
         float y = Random.Range(-4, 4);
         if (time > span)
         {
@@ -48,10 +45,11 @@ public class GameManager : MonoBehaviour
         ScoreText(score);
     }
    private void StoreText()
-    {
+   {
         shopText[0].text = "杖\n親密度:" + shop.cane.ToString()+"爺";
         shopText[1].text = "車いす\n親密度:" + shop.wheelchair.ToString()+ "爺";
         shopText[2].text = "サプリ\n親密度:" + shop.supplement.ToString()+ "爺";
         shopText[3].text = "お年玉を送る\n親密度:" + shop.money.ToString()+ "爺";
-    }
+   }
+
 }
