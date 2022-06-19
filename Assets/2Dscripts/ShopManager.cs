@@ -19,7 +19,7 @@ public class ShopManager : MonoBehaviour
     public int supplement = 1000;
     /// <summary>‚¨‹à</summary>
     public int money = 5000;
-    [SerializeField] GameObject[] itemPrefab = default;
+    public GameObject[] itemPrefab = default;
     float x0 = -11;
     float x1 = -11;
     float x2 = -11;
@@ -55,7 +55,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < wheelchair) return;
             AddObj.SetActive(true);
             gameManager.score -= wheelchair;
-            wheelchair += 133;
+            wheelchair += 53;
             autoAdd.number += 3;
             Instantiate(itemPrefab[1], new Vector2(x1, y1), Quaternion.identity);
             if (x1 >= 12.0f)
@@ -67,7 +67,7 @@ public class ShopManager : MonoBehaviour
             if (gameManager.score < supplement) return;
             AddObj.SetActive(true);
             gameManager.score -= supplement;
-            supplement += 1163;
+            supplement += 563;
             autoAdd.number += 5;
             gameManager.delete += 0.2f;
             Instantiate(itemPrefab[2], new Vector2(x2, y2), Quaternion.identity);
