@@ -15,11 +15,11 @@ public class SaveManager : MonoBehaviour
     {
         gameManager.score = PlayerPrefs.GetInt("SCORE", 0);
         autoAdd.number = PlayerPrefs.GetInt("NUMBER", 0);
-        gameManager.delete = PlayerPrefs.GetFloat("DELETE",0);
-        shopManager.cane = PlayerPrefs.GetInt("SHOP", 0);
-        shopManager.wheelchair = PlayerPrefs.GetInt("SHOP1", 0);
-        shopManager.supplement = PlayerPrefs.GetInt("SHOP2", 0);
-        shopManager.money = PlayerPrefs.GetInt("SHOP3",0);
+        gameManager.delete = PlayerPrefs.GetFloat("DELETE",1.0f);
+        shopManager.cane = PlayerPrefs.GetInt("SHOP", 10);
+        shopManager.wheelchair = PlayerPrefs.GetInt("SHOP1", 100);
+        shopManager.supplement = PlayerPrefs.GetInt("SHOP2", 1000);
+        shopManager.money = PlayerPrefs.GetInt("SHOP3",5000);
         if (autoAdd.number > 0)
         {
             AddObj.SetActive(true);
