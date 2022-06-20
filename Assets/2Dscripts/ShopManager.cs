@@ -181,5 +181,5 @@ public class ShopManager : MonoBehaviour
         itemBuyCount[1].text = "w“ü‰ñ”:" + count1.ToString() + "‰ñ";
         itemBuyCount[2].text = "w“ü‰ñ”:" + count2.ToString() + "‰ñ";
         itemBuyCount[3].text = "w“ü‰ñ”:" + count3.ToString() + "‰ñ";
-    }
+    }   
 }
