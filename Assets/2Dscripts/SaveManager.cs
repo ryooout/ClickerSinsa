@@ -26,6 +26,11 @@ public class SaveManager : MonoBehaviour
         shopManager.wheelchair = PlayerPrefs.GetFloat("SHOP1", 100);
         shopManager.supplement = PlayerPrefs.GetFloat("SHOP2", 1000);
         shopManager.money = PlayerPrefs.GetFloat("SHOP3",5000);
+        shopManager.inc = PlayerPrefs.GetFloat("INC", 0);
+        shopManager.inc1 = PlayerPrefs.GetFloat("INC1", 0);
+        shopManager.inc2 = PlayerPrefs.GetFloat("INC2", 0);
+        shopManager.inc3 = PlayerPrefs.GetFloat("INC3", 0);
+        shopManager.inc4 = PlayerPrefs.GetFloat("INC4", 0);
         if (autoAdd.number > 0)
         {
             AddObj.SetActive(true);
@@ -45,6 +50,11 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetFloat("SHOP1", shopManager.wheelchair);
         PlayerPrefs.SetFloat("SHOP2", shopManager.supplement);
         PlayerPrefs.SetFloat("SHOP3", shopManager.money);
+        PlayerPrefs.SetFloat("INC", shopManager.inc);
+        PlayerPrefs.SetFloat("INC1", shopManager.inc1);
+        PlayerPrefs.SetFloat("INC2", shopManager.inc2);
+        PlayerPrefs.SetFloat("INC3", shopManager.inc3);
+        PlayerPrefs.SetFloat("INC4", shopManager.inc4);
         PlayerPrefs.Save();
         Debug.Log("ÉZÅ[Éu");
     }
@@ -67,5 +77,10 @@ public class SaveManager : MonoBehaviour
         shopManager.levelCount1 = 0;
         shopManager.levelCount2 = 0;
         shopManager.levelCount3 = 0;
+        shopManager.inc = 0;
+        shopManager.inc1 = 0;
+        shopManager.inc2 = 0;
+        shopManager.inc3 = 0;
+        shopManager.inc4 = 0;
     }
 }
