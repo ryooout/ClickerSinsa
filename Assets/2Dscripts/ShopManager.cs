@@ -108,11 +108,6 @@ public class ShopManager : MonoBehaviour
             if (count % 5 == 0)
             {
                 Instantiate(itemPrefab[0], new Vector2(x, y), Quaternion.identity);
-                if(!itemPrefab[0].activeSelf)
-                {
-                    auto += 0.08f;
-                    Debug.Log("ëùÇ¶ÇΩ");
-                }
             }
         });
         shopButton[1].onClick.AddListener(() =>
@@ -137,11 +132,6 @@ public class ShopManager : MonoBehaviour
             if (count1 % 5 == 0)
             {
                 Instantiate(itemPrefab[1], new Vector2(x, y), Quaternion.identity);
-                if(!itemPrefab[1].activeSelf)
-                {
-                    auto1 += 0.11f;
-                    Debug.Log("ëùÇ¶ÇΩ");
-                }
             }
         });
         shopButton[2].onClick.AddListener(() =>
@@ -163,11 +153,6 @@ public class ShopManager : MonoBehaviour
             if (count2 % 5 == 0)
             {
                 Instantiate(itemPrefab[2], new Vector2(x, y), Quaternion.identity);
-                if(!itemPrefab[2].activeSelf)
-                {
-                    auto2 += 0.13f;
-                    Debug.Log("ëùÇ¶ÇΩ");
-                }
             }
             /*Instantiate(itemPrefab[2], new Vector2(x2, y2), Quaternion.identity);
             if (x2 >= 12.0f)
@@ -198,11 +183,6 @@ public class ShopManager : MonoBehaviour
             if (count3 % 5 == 0)
             {
                 Instantiate(itemPrefab[3], new Vector2(x, y), Quaternion.identity);
-                if (!itemPrefab[3].activeSelf)
-                {
-                    auto3 += 0.15f;
-                    Debug.Log("ëùÇ¶ÇΩ");
-                }
             }
         });
     }
