@@ -17,15 +17,15 @@ public class SaveManager : MonoBehaviour
         Debug.Log("ロード");
         gameManager.score = PlayerPrefs.GetInt("SCORE", 0);
         autoAdd.number = PlayerPrefs.GetInt("NUMBER", 0);
+        shopManager.count = PlayerPrefs.GetInt("COUNT", 0);
+        shopManager.count1 = PlayerPrefs.GetInt("COUNT1", 0);
+        shopManager.count2 = PlayerPrefs.GetInt("COUNT2", 0);
+        shopManager.count3 = PlayerPrefs.GetInt("COUNT3", 0);
         gameManager.delete = PlayerPrefs.GetFloat("DELETE",1.0f);
         shopManager.cane = PlayerPrefs.GetFloat("SHOP", 10);
         shopManager.wheelchair = PlayerPrefs.GetFloat("SHOP1", 100);
         shopManager.supplement = PlayerPrefs.GetFloat("SHOP2", 1000);
         shopManager.money = PlayerPrefs.GetFloat("SHOP3",5000);
-        shopManager.count = PlayerPrefs.GetInt("COUNT", 0);
-        shopManager.count = PlayerPrefs.GetInt("COUNT1", 0);
-        shopManager.count = PlayerPrefs.GetInt("COUNT2", 0);
-        shopManager.count = PlayerPrefs.GetInt("COUNT3", 0);
         if (autoAdd.number > 0)
         {
             AddObj.SetActive(true);
@@ -36,15 +36,16 @@ public class SaveManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SCORE", gameManager.score);
         PlayerPrefs.SetInt("NUMBER", autoAdd.number);
+        PlayerPrefs.SetInt("COUNT", shopManager.count);
+        PlayerPrefs.SetInt("COUNT1", shopManager.count1);
+        PlayerPrefs.SetInt("COUNT2", shopManager.count2);
+        PlayerPrefs.SetInt("COUNT3", shopManager.count3);
         PlayerPrefs.SetFloat("DELETE", gameManager.delete);
         PlayerPrefs.SetFloat("SHOP", shopManager.cane);
         PlayerPrefs.SetFloat("SHOP1", shopManager.wheelchair);
         PlayerPrefs.SetFloat("SHOP2", shopManager.supplement);
         PlayerPrefs.SetFloat("SHOP3", shopManager.money);
-        PlayerPrefs.SetInt("COUNT", shopManager.count);
-        PlayerPrefs.SetInt("COUNT", shopManager.count1);
-        PlayerPrefs.SetInt("COUNT", shopManager.count2);
-        PlayerPrefs.SetInt("COUNT", shopManager.count3);
+        PlayerPrefs.Save();
         Debug.Log("セーブ");
     }
     void Update()
