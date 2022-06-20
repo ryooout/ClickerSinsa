@@ -71,6 +71,7 @@ public class GatyaManager : MonoBehaviour
             _double += 0.01f;
             if (timerObj.activeSelf)
             {
+                gameManager.delete += 1.0f;
                 autoObj.SetActive(true);
                 if (i==0)//black
                 {
@@ -114,6 +115,7 @@ public class GatyaManager : MonoBehaviour
     }
    public void Generater()
     {
+        gameManager.delete -= 1.0f;
         gatyaAudioSource.PlayOneShot(gatyaSound[1]);
         katura.SetActive(false);
         gatyaTimer.gameObject.SetActive(false);
