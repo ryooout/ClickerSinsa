@@ -17,10 +17,10 @@ public class SaveManager : MonoBehaviour
         Debug.Log("ÉçÅ[Éh");
         gameManager.score = PlayerPrefs.GetInt("SCORE", 0);
         autoAdd.number = PlayerPrefs.GetInt("NUMBER", 0);
-        shopManager.count = PlayerPrefs.GetInt("COUNT", 0);
-        shopManager.count1 = PlayerPrefs.GetInt("COUNT1", 0);
-        shopManager.count2 = PlayerPrefs.GetInt("COUNT2", 0);
-        shopManager.count3 = PlayerPrefs.GetInt("COUNT3", 0);
+        shopManager.levelCount = PlayerPrefs.GetInt("COUNT", 0);
+        shopManager.levelCount1 = PlayerPrefs.GetInt("COUNT1", 0);
+        shopManager.levelCount2 = PlayerPrefs.GetInt("COUNT2", 0);
+        shopManager.levelCount3 = PlayerPrefs.GetInt("COUNT3", 0);
         gameManager.delete = PlayerPrefs.GetFloat("DELETE",1.0f);
         shopManager.cane = PlayerPrefs.GetFloat("SHOP", 10);
         shopManager.wheelchair = PlayerPrefs.GetFloat("SHOP1", 100);
@@ -36,10 +36,10 @@ public class SaveManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SCORE", gameManager.score);
         PlayerPrefs.SetInt("NUMBER", autoAdd.number);
-        PlayerPrefs.SetInt("COUNT", shopManager.count);
-        PlayerPrefs.SetInt("COUNT1", shopManager.count1);
-        PlayerPrefs.SetInt("COUNT2", shopManager.count2);
-        PlayerPrefs.SetInt("COUNT3", shopManager.count3);
+        PlayerPrefs.SetInt("COUNT", shopManager.levelCount);
+        PlayerPrefs.SetInt("COUNT1", shopManager.levelCount1);
+        PlayerPrefs.SetInt("COUNT2", shopManager.levelCount2);
+        PlayerPrefs.SetInt("COUNT3", shopManager.levelCount3);
         PlayerPrefs.SetFloat("DELETE", gameManager.delete);
         PlayerPrefs.SetFloat("SHOP", shopManager.cane);
         PlayerPrefs.SetFloat("SHOP1", shopManager.wheelchair);
@@ -63,9 +63,9 @@ public class SaveManager : MonoBehaviour
         shopManager.wheelchair = 100;
         shopManager.supplement = 1000;
         shopManager.money = 5000;
-        shopManager.count = 0;
-        shopManager.count1 = 0;
-        shopManager.count2 = 0;
-        shopManager.count3 = 0;
+        shopManager.levelCount = 0;
+        shopManager.levelCount1 = 0;
+        shopManager.levelCount2 = 0;
+        shopManager.levelCount3 = 0;
     }
 }
