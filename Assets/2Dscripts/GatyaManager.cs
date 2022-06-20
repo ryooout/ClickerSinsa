@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GatyaManager : MonoBehaviour
 {
     [SerializeField]GameManager gameManager = default;
+    [SerializeField]ShopManager shopManager = default;
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] GameObject autoObj = default;
     [SerializeField] GameObject backGroundObj = default;
@@ -16,6 +17,7 @@ public class GatyaManager : MonoBehaviour
     [SerializeField] Text gatyaPriceText = default;
     /// <summary>効果音 </summary>
     AudioSource gatyaAudioSource = null;
+    /// <summary>ガチャ中の音</summary>
     public AudioClip[]gatyaSound = default;
     /// <summary>ハート型のオブジェクト </summary>
     [SerializeField] GameObject heart = default;
@@ -25,16 +27,25 @@ public class GatyaManager : MonoBehaviour
     [SerializeField] Button[] gatyaButton = default;
     /// <summary>ガチャ結果</summary>
     [SerializeField] Text[] gatyaResultText = default;
+    /// <summary>黄金のハート</summary>
+    [SerializeField]GameObject goldHeart = default;
     int i;
     /// <summary>1秒あたりの値の増加量</summary>
     int i0 = 20;
     int i1 = 40;
     int i2 = 60;
     int i3 = 80;
+    int random;
+    float gatyaIncrese = 1;
+    float gatyaIncrese1 = 1;
+    float gatyaIncrese2 = 1;
+    float gatyaIncrese3 = 1;
     float _double = 1.05f;
     public int gatyaPrice = 1000;
     GameObject katura = default;
     GameObject timerObj = default;
+    float x;
+    float y;
     private void Awake()
     {
         gatyaAudioSource = GetComponent<AudioSource>();
@@ -52,6 +63,9 @@ public class GatyaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        x = Random.Range(-10, 10);
+        y = Random.Range(-4,4);
+        random = Random.Range(1, 6);
         i = Random.Range(0, katuraPrefab.Length);
         gatyaPriceText.text = "       " + "ガチャ\n親密度:" + gatyaPrice + "爺";
     }
@@ -75,33 +89,73 @@ public class GatyaManager : MonoBehaviour
                 autoObj.SetActive(true);
                 if (i==0)//black
                 {
-                    autoAdd.gatyaNumber += i0;
+                    autoAdd.gatyaNumber += Mathf.FloorToInt(i0*gatyaIncrese);
+                    gatyaIncrese *= 1.25f;
                     Debug.Log("black");
                     gameManager.span = 0.7f;
                     gatyaResultText[0].gameObject.SetActive(true);
+                    autoAdd.number += Mathf.FloorToInt((1 * shopManager.auto) + 1);
+                    shopManager.levelCount++;
+                    shopManager.inc += 0.50f;
+                    shopManager.inc1 += 0.65f;
+                    shopManager.inc2 += 0.75f;
+                    shopManager.inc3 += 0.85f;
+                    shopManager.inc4 += 0.95f;
                 }
                 else if (i == 1)//gold
                 {
-                    autoAdd.gatyaNumber += i1;
+                    autoAdd.gatyaNumber += Mathf.FloorToInt(i1*gatyaIncrese1);
+                    gatyaIncrese1 *= 1.25f;
                     Debug.Log("gold");
                     gameManager.span = 0.8f;
                     gatyaResultText[1].gameObject.SetActive(true);
+                    autoAdd.number += Mathf.FloorToInt((3 * shopManager.auto1) + 2);
+                    shopManager.levelCount1++;
+                    shopManager.inc += 0.65f;
+                    shopManager.inc1 += 0.75f;
+                    shopManager.inc2 += 0.85f;
+                    shopManager.inc3 += 0.90f;
+                    shopManager.inc4 += 1.0f;
                 }
                 else if (i == 2)//short
                 { 
-                    autoAdd.gatyaNumber += i2;
+                    autoAdd.gatyaNumber += Mathf.FloorToInt(i2*gatyaIncrese2);
+                    gatyaIncrese2 *= 1.25f;
                     Debug.Log("short");
                     gameManager.span = 0.9f;
                     gatyaResultText[2].gameObject.SetActive(true);
-                }
+                    autoAdd.number += Mathf.FloorToInt((5 * shopManager.auto2) + 3);
+                    gameManager.delete += 0.3f;
+                    shopManager.levelCount2++;
+                    shopManager.inc += 0.75f;
+                    shopManager.inc1 += 0.85f;
+                    shopManager.inc2 += 0.95f;
+                    shopManager.inc3 += 1.0f;
+                    shopManager.inc4 += 1.15f;
+                }               
                 else if(i == 3)//short2
                 {
-                    autoAdd.gatyaNumber += i3;
+                    autoAdd.gatyaNumber += Mathf.FloorToInt(i3*gatyaIncrese3);
+                    gatyaIncrese3 *= 1.25f;
                     Debug.Log("short2");
                     gameManager.span = 1.0f;
                     gatyaResultText[3].gameObject.SetActive(true);
+                    autoAdd.number += Mathf.FloorToInt((15 * shopManager.auto3) + 4);
+                    gameManager.delete += 0.7f;
+                    gameManager.AddScore(350);
+                    shopManager.levelCount3++;
+                    shopManager.inc += 0.85f;
+                    shopManager.inc1 += 0.95f;
+                    shopManager.inc2 += 1.0f;
+                    shopManager.inc3 += 1.15f;
+                    shopManager.inc4 += 1.25f;
                 }
                 Invoke(nameof(Generater), 10.0f);
+                if(random==3)
+                {
+                   var obj = Instantiate(goldHeart,new Vector2(x,y),Quaternion.identity);
+                    Destroy(obj, 10.0f);
+                }
             }
         }        
         else if(gameManager.score < 1000||timerObj.activeSelf)
