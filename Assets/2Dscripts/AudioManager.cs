@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip[]sound;
+    public AudioClip sound;
+    public AudioClip sound1;
     private AudioSource audioSource;
     void Start()
     {
@@ -18,10 +19,10 @@ public class AudioManager : MonoBehaviour
     }
     public void SE()
     {
-        audioSource.PlayOneShot(sound[0]);
+        audioSource.PlayOneShot(sound);
     }
     public void SE2()
     {
-        audioSource.PlayOneShot(sound[1]);
+        audioSource.PlayOneShot(sound1);
     }
 }
