@@ -76,7 +76,6 @@ public class GatyaManager : MonoBehaviour
         if (gameManager.score >= 1000&&!timerObj.activeSelf)
         {
             levelUpText.gameObject.SetActive(true);
-            Invoke(nameof(NotRotate), 2.0f);
             gatyaTimer.gameObject.SetActive(true);
             notRotate.gameObject.SetActive(false);
             heart.SetActive(true);
