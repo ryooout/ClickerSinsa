@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] GameManager gameManager = default;
+    [SerializeField] AudioManager audioManager = default;
     [SerializeField] AutoAdd autoAdd = default;
     /// <summary>アイテムボタン一覧</summary>
     public Button[] shopButton = default;
@@ -51,6 +52,7 @@ public class ShopManager : MonoBehaviour
     }
     void Start()
     {
+        audioManager = GameObject.Find("AudioObj").GetComponent<AudioManager>();
         Generate();
     }
     void Update()
@@ -101,7 +103,7 @@ public class ShopManager : MonoBehaviour
             x0 += 0.15f;*/
             if (count % 5 == 0)
             {
-                Instantiate(itemPrefab[0], new Vector2(x, y), Quaternion.identity);
+               Instantiate(itemPrefab[0], new Vector2(x, y), Quaternion.identity);
             }
         });
         shopButton[1].onClick.AddListener(() =>
