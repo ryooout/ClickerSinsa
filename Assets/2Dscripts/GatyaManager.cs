@@ -31,6 +31,7 @@ public class GatyaManager : MonoBehaviour
     int i1 = 40;
     int i2 = 60;
     int i3 = 80;
+    float _double = 1.05f;
     public int gatyaPrice = 1000;
     GameObject katura = default;
     GameObject timerObj = default;
@@ -66,35 +67,36 @@ public class GatyaManager : MonoBehaviour
             gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
            katura = Instantiate(katuraPrefab[i], new Vector2(0, 3), Quaternion.identity);
             gameManager.score -= gatyaPrice;
-            gatyaPrice += 100;
+            gatyaPrice += Mathf.FloorToInt(100*_double);
+            _double += 0.01f;
             if (timerObj.activeSelf)
             {
                 autoObj.SetActive(true);
                 if (i==0)//black
                 {
                     autoAdd.gatyaNumber += i0;
-                    Debug.Log(autoAdd.gatyaNumber += i0);
+                    Debug.Log("black");
                     gameManager.span = 0.7f;
                     gatyaResultText[0].gameObject.SetActive(true);
                 }
                 else if (i == 1)//gold
                 {
                     autoAdd.gatyaNumber += i1;
-                    Debug.Log(autoAdd.gatyaNumber += i1);
+                    Debug.Log("gold");
                     gameManager.span = 0.8f;
                     gatyaResultText[1].gameObject.SetActive(true);
                 }
                 else if (i == 2)//short
                 { 
                     autoAdd.gatyaNumber += i2;
-                    Debug.Log(autoAdd.gatyaNumber += i2);
+                    Debug.Log("short");
                     gameManager.span = 0.9f;
                     gatyaResultText[2].gameObject.SetActive(true);
                 }
                 else if(i == 3)//short2
                 {
                     autoAdd.gatyaNumber += i3;
-                    Debug.Log(autoAdd.gatyaNumber += i3);
+                    Debug.Log("short2");
                     gameManager.span = 1.0f;
                     gatyaResultText[3].gameObject.SetActive(true);
                 }
