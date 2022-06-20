@@ -29,6 +29,8 @@ public class GatyaManager : MonoBehaviour
     [SerializeField] Text[] gatyaResultText = default;
     /// <summary>黄金のハート</summary>
     [SerializeField]GameObject goldHeart = default;
+    /// <summary>レベルアップ通知</summary>
+    [SerializeField] RawImage levelUpText = default;
     int i;
     /// <summary>1秒あたりの値の増加量</summary>
     int i0 = 20;
@@ -73,6 +75,8 @@ public class GatyaManager : MonoBehaviour
     { 
         if (gameManager.score >= 1000&&!timerObj.activeSelf)
         {
+            levelUpText.gameObject.SetActive(true);
+            Invoke(nameof(NotRotate), 2.0f);
             gatyaTimer.gameObject.SetActive(true);
             notRotate.gameObject.SetActive(false);
             heart.SetActive(true);
@@ -89,6 +93,8 @@ public class GatyaManager : MonoBehaviour
                 autoObj.SetActive(true);
                 if (i==0)//black
                 {
+                    levelUpText.gameObject.SetActive(true);
+                    Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i0*gatyaIncrese);
                     gatyaIncrese *= 1.25f;
                     Debug.Log("black");
@@ -104,6 +110,8 @@ public class GatyaManager : MonoBehaviour
                 }
                 else if (i == 1)//gold
                 {
+                    levelUpText.gameObject.SetActive(true);
+                    Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i1*gatyaIncrese1);
                     gatyaIncrese1 *= 1.25f;
                     Debug.Log("gold");
@@ -118,7 +126,9 @@ public class GatyaManager : MonoBehaviour
                     shopManager.inc4 += 1.0f;
                 }
                 else if (i == 2)//short
-                { 
+                {
+                    levelUpText.gameObject.SetActive(true);
+                    Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i2*gatyaIncrese2);
                     gatyaIncrese2 *= 1.25f;
                     Debug.Log("short");
@@ -135,6 +145,8 @@ public class GatyaManager : MonoBehaviour
                 }               
                 else if(i == 3)//short2
                 {
+                    levelUpText.gameObject.SetActive(true);
+                    Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i3*gatyaIncrese3);
                     gatyaIncrese3 *= 1.25f;
                     Debug.Log("short2");
@@ -205,5 +217,9 @@ public class GatyaManager : MonoBehaviour
     {
         notRotate.gameObject.SetActive(false);
         gatyaPrefab.GetComponent<Renderer>().material.color = Color.white;
+    }
+    void LevelUp()
+    {
+        levelUpText.gameObject.SetActive(false);
     }
 }
