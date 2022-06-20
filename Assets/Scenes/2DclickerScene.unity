@@ -154,6 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2055863477}
   audioManager: {fileID: 0}
+  increse: 1
+  increse1: 1
+  increse2: 1
+  increse3: 1
+  increse4: 1
 --- !u!4 &7773344
 Transform:
   m_ObjectHideFlags: 0
@@ -4246,7 +4251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2055863477}
-  audioManager: {fileID: 0}
+  scoreAdd: {fileID: 7773343}
   autoAdd: {fileID: 334372032}
   shopButton:
   - {fileID: 1525822194}
@@ -4276,6 +4281,10 @@ MonoBehaviour:
   count1: 0
   count2: 0
   count3: 0
+  auto: 1
+  auto1: 1
+  auto2: 1
+  auto3: 1
 --- !u!1 &1615769207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,6 +5473,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
+  increse: 1
+  increse1: 1
+  increse2: 1
+  increse3: 1
+  increse4: 1
 --- !u!114 &3694739415676340670
 MonoBehaviour:
   m_ObjectHideFlags: 0
