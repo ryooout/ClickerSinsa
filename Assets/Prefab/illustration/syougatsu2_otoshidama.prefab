@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: -5145509756992942698}
   - component: {fileID: -7386147062833917026}
   - component: {fileID: -2798750850771277010}
+  - component: {fileID: 2554023785004079701}
   m_Layer: 0
   m_Name: syougatsu2_otoshidama
-  m_TagString: Untagged
+  m_TagString: Otoshidama
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,3 +156,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.51, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &2554023785004079701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4766404924889398717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb8005cb94dcc944a6491691d6dd240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
