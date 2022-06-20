@@ -28,10 +28,10 @@ public class ShopManager : MonoBehaviour
     public int count2 = 0;
     public int count3 = 0;
      /// <summary>値段上昇 </summary>
-    float increse = 1;
-    float increse1 = 1;
-    float increse2 = 1;
-    float increse3 = 0;
+    float increse = 1.13f;
+    float increse1 = 1.05f;
+    float increse2 = 1.02f;
+    float increse3 = 1.015f;
     /// <summary>値自動加算</summary>
     public float auto = 1;
     public float auto1 = 1;
@@ -87,14 +87,13 @@ public class ShopManager : MonoBehaviour
     {
         //・AddListener...スクリプトからボタンのイベントを呼び出すことが出来る
         shopButton[0].onClick.AddListener(() =>
-        {　　　　　　　　　　　　　　　　　//値を返す
+        {　　　　　　　　　　　　　　　　　//値が低かったら戻り値を返す
             if (gameManager.score < cane) return;
             count++;
             itemBuyCount[0].text = "購入回数:" + count.ToString() + "回";
             AddObj.SetActive(true);
-            gameManager.score -= Mathf.FloorToInt(cane * increse);
-            increse = 1.13f;
-            cane += Mathf.FloorToInt(cane * increse);
+            gameManager.score -= Mathf.FloorToInt(cane);
+            cane += Mathf.FloorToInt(cane*increse);
             autoAdd.number += Mathf.FloorToInt(1 * auto);
             scoreAdd.increse +=  0.05f;
             scoreAdd.increse1 += 0.05f;
@@ -116,8 +115,7 @@ public class ShopManager : MonoBehaviour
             count1++;
             itemBuyCount[1].text = "購入回数:" + count1.ToString() + "回";
             AddObj.SetActive(true);
-            gameManager.score -= Mathf.FloorToInt(wheelchair * increse1);
-            increse1 = 1.05f;
+            gameManager.score -= Mathf.FloorToInt(wheelchair);
             wheelchair += Mathf.FloorToInt(wheelchair * increse1);
             autoAdd.number += Mathf.FloorToInt(3 * auto1);
             scoreAdd.increse  += 0.08f;
@@ -140,8 +138,7 @@ public class ShopManager : MonoBehaviour
             count2++;
             itemBuyCount[2].text = "購入回数:" + count2.ToString() + "回";
             AddObj.SetActive(true);
-            gameManager.score -= Mathf.FloorToInt(supplement * increse2);
-            increse2 = 1.02f;
+            gameManager.score -= Mathf.FloorToInt(supplement);
             supplement += Mathf.FloorToInt(supplement * increse2);
             autoAdd.number += Mathf.FloorToInt(5 * auto2);
             gameManager.delete += 0.11f;
@@ -165,8 +162,7 @@ public class ShopManager : MonoBehaviour
             count3++;
             itemBuyCount[3].text = "購入回数:" + count3.ToString() + "回";
             AddObj.SetActive(true);
-            gameManager.score -= Mathf.FloorToInt(money * increse3);
-            increse3 = 1.015f;
+            gameManager.score -= Mathf.FloorToInt(money);
             money += Mathf.FloorToInt(money * increse3);
             autoAdd.number += Mathf.FloorToInt(15 * auto3);
             gameManager.delete += 0.7f;
