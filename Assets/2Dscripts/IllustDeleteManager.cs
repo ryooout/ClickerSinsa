@@ -49,6 +49,7 @@ public class IllustDeleteManager : MonoBehaviour
         else if(gameObject.tag =="GoldHeart")
         {
             gameManager.AddScore(Mathf.FloorToInt(gameManager.score*rand));
+            audioManager.SE2();
         }
     }
 }
