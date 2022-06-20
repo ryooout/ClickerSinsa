@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] GameManager gameManager = default;
-    [SerializeField] ScoreAdd scoreAdd = default;
     [SerializeField] AutoAdd autoAdd = default;
     /// <summary>アイテムボタン一覧</summary>
     public Button[] shopButton = default;
@@ -23,15 +22,15 @@ public class ShopManager : MonoBehaviour
     /// <summary>お金</summary>
     public float money = 5000;
     public GameObject[] itemPrefab = default;
-    public int count = 0;
-    public int count1 = 0;
-    public int count2 = 0;
-    public int count3 = 0;
+    public int levelCount = 0;
+    public int levelCount1 = 0;
+    public int levelCount2 = 0;
+    public int levelCount3 = 0;
      /// <summary>値段上昇 </summary>
-    float increse = 1.13f;
-    float increse1 = 1.05f;
-    float increse2 = 1.02f;
-    float increse3 = 1.015f;
+    public float increse =  1;
+    public float increse1 = 1;
+    public float increse2 = 1;
+    public float increse3 = 1;
     /// <summary>値自動加算</summary>
     public float auto = 1;
     public float auto1 = 1;
@@ -39,6 +38,12 @@ public class ShopManager : MonoBehaviour
     public float auto3 = 1;
     float x;
     float y;
+
+    public float inc = 1;
+    public float inc1 = 1;
+    public float inc2 = 1;
+    public float inc3 = 1;
+    public float inc4 = 1;
     private void Awake()
     {
        AddObj.SetActive(false);
@@ -86,21 +91,22 @@ public class ShopManager : MonoBehaviour
         shopButton[0].onClick.AddListener(() =>
         {　　　　　　　　　　　　　　　　　//値が低かったら戻り値を返す
             if (gameManager.score < cane) return;
-            count++;
+            levelCount++;
             AddObj.SetActive(true);
+            increse *= 1.23f;
             gameManager.score -= Mathf.FloorToInt(cane);
             cane += Mathf.FloorToInt(cane*increse);
-            autoAdd.number += Mathf.FloorToInt(1 * auto);
-            scoreAdd.increse +=  0.05f;
-            scoreAdd.increse1 += 0.05f;
-            scoreAdd.increse2 += 0.05f;
-            scoreAdd.increse3 += 0.05f;
-            scoreAdd.increse4 += 0.05f;
+            autoAdd.number += Mathf.FloorToInt((1 * auto)+1);
+            inc  += 0.50f;
+            inc1 += 0.65f;
+            inc2 += 0.75f;
+            inc3 += 0.85f;
+            inc4 += 0.95f;
             /*Instantiate(itemPrefab[0],new Vector2(x0,y0),Quaternion.identity);
             if (x0 >= 12.0f)
             { x0 = -11; }
             x0 += 0.15f;*/
-            if (count % 5 == 0)
+            if (levelCount % 5 == 0)
             {
                 Instantiate(itemPrefab[0], new Vector2(x, y), Quaternion.identity);
             }
@@ -108,21 +114,22 @@ public class ShopManager : MonoBehaviour
         shopButton[1].onClick.AddListener(() =>
         {
             if (gameManager.score < wheelchair) return;
-            count1++;
+            levelCount1++;
             AddObj.SetActive(true);
+            increse1 *= 1.23f;
             gameManager.score -= Mathf.FloorToInt(wheelchair);
             wheelchair += Mathf.FloorToInt(wheelchair * increse1);
-            autoAdd.number += Mathf.FloorToInt(3 * auto1);
-            scoreAdd.increse  += 0.08f;
-            scoreAdd.increse1 += 0.08f;
-            scoreAdd.increse2 += 0.08f;
-            scoreAdd.increse3 += 0.08f;
-            scoreAdd.increse4 += 0.08f;
+            autoAdd.number += Mathf.FloorToInt((3 * auto1)+2);
+            inc += 0.65f;
+            inc1 += 0.75f;
+            inc2 += 0.85f;
+            inc3 += 0.90f;
+            inc4 += 1.0f;
             /*Instantiate(itemPrefab[1], new Vector2(x1, y1), Quaternion.identity);
             if (x1 >= 12.0f)
             { x1 = -11; }
             x1 += 0.3f;*/
-            if (count1 % 5 == 0)
+            if (levelCount1 % 5 == 0)
             {
                 Instantiate(itemPrefab[1], new Vector2(x, y), Quaternion.identity);
             }
@@ -130,18 +137,19 @@ public class ShopManager : MonoBehaviour
         shopButton[2].onClick.AddListener(() =>
         {
             if (gameManager.score < supplement) return;
-            count2++;
+            levelCount2++;
             AddObj.SetActive(true);
+            increse2 *= 1.23f;
             gameManager.score -= Mathf.FloorToInt(supplement);
-            supplement += Mathf.FloorToInt(supplement * increse2);
-            autoAdd.number += Mathf.FloorToInt(5 * auto2);
-            gameManager.delete += 0.11f;
-            scoreAdd.increse +=  0.11f;
-            scoreAdd.increse1 += 0.11f;
-            scoreAdd.increse2 += 0.11f;
-            scoreAdd.increse3 += 0.11f;
-            scoreAdd.increse4 += 0.11f;
-            if (count2 % 5 == 0)
+            supplement += Mathf.FloorToInt(supplement * increse2);            
+            autoAdd.number += Mathf.FloorToInt((5 * auto2)+3);
+            gameManager.delete += 0.3f;
+            inc += 0.75f;
+            inc1 += 0.85f;
+            inc2 += 0.95f;
+            inc3 += 1.0f;
+            inc4 += 1.15f;
+            if (levelCount2 % 5 == 0)
             {
                 Instantiate(itemPrefab[2], new Vector2(x, y), Quaternion.identity);
             }
@@ -153,23 +161,24 @@ public class ShopManager : MonoBehaviour
         shopButton[3].onClick.AddListener(() =>
         {
             if (gameManager.score < money) return;
-            count3++;
+            levelCount3++;
             AddObj.SetActive(true);
+            increse3 *= 1.23f;
             gameManager.score -= Mathf.FloorToInt(money);
-            money += Mathf.FloorToInt(money * increse3);
-            autoAdd.number += Mathf.FloorToInt(15 * auto3);
+            money += Mathf.FloorToInt(money * increse3); 
+            autoAdd.number += Mathf.FloorToInt((15 * auto3)+4);
             gameManager.delete += 0.7f;
             gameManager.AddScore(350);
-            scoreAdd.increse +=  0.13f;
-            scoreAdd.increse1 += 0.13f;
-            scoreAdd.increse2 += 0.13f;
-            scoreAdd.increse3 += 0.13f;
-            scoreAdd.increse4 += 0.13f;
+            inc += 0.85f;
+            inc1 += 0.95f;
+            inc2 += 1.0f;
+            inc3 += 1.15f;
+            inc4 += 1.25f;
             /*Instantiate(itemPrefab[3], new Vector2(x3, y3), Quaternion.identity);           
             if(x3 >= 12.0f)
             { x3 = -11; }
             x3 += 0.3f;*/
-            if (count3 % 5 == 0)
+            if (levelCount3 % 5 == 0)
             {
                 Instantiate(itemPrefab[3], new Vector2(x, y), Quaternion.identity);
             }
@@ -177,9 +186,9 @@ public class ShopManager : MonoBehaviour
     }
     public void BuyCount()
     {
-        itemBuyCount[0].text = "購入回数:" + count.ToString() + "回";
-        itemBuyCount[1].text = "購入回数:" + count1.ToString() + "回";
-        itemBuyCount[2].text = "購入回数:" + count2.ToString() + "回";
-        itemBuyCount[3].text = "購入回数:" + count3.ToString() + "回";
+        itemBuyCount[0].text = "レベル:" + levelCount.ToString();
+        itemBuyCount[1].text = "レベル:" + levelCount1.ToString();
+        itemBuyCount[2].text = "レベル:" + levelCount2.ToString();
+        itemBuyCount[3].text = "レベル:" + levelCount3.ToString();
     }   
 }
