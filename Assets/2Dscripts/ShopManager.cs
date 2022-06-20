@@ -38,7 +38,7 @@ public class ShopManager : MonoBehaviour
     public float auto3 = 1;
     float x;
     float y;
-
+    /// <summary>おじさんをクリックしたときの値上昇 </summary>
     public float inc = 1;
     public float inc1 = 1;
     public float inc2 = 1;
