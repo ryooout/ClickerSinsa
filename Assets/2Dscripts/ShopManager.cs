@@ -45,10 +45,6 @@ public class ShopManager : MonoBehaviour
         shopOpen[0].SetActive(true);//ショップオープン
         shopOpen[1].SetActive(false);//ショップクローズ
         shopOpen[2].SetActive(false);//ショップアイテム一覧
-        itemBuyCount[0].text = "購入回数:" + count.ToString() + "回";
-        itemBuyCount[1].text = "購入回数:" + count1.ToString() + "回";
-        itemBuyCount[2].text = "購入回数:" + count2.ToString() + "回";
-        itemBuyCount[3].text = "購入回数:" + count3.ToString() + "回";
     }
     void Start()
     {
@@ -57,6 +53,7 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         ItemShopColor();
+        BuyCount();
         x = Random.Range(-10, 10);
         y = Random.Range(-4, 4);
     }
@@ -90,7 +87,6 @@ public class ShopManager : MonoBehaviour
         {　　　　　　　　　　　　　　　　　//値が低かったら戻り値を返す
             if (gameManager.score < cane) return;
             count++;
-            itemBuyCount[0].text = "購入回数:" + count.ToString() + "回";
             AddObj.SetActive(true);
             gameManager.score -= Mathf.FloorToInt(cane);
             cane += Mathf.FloorToInt(cane*increse);
@@ -113,7 +109,6 @@ public class ShopManager : MonoBehaviour
         {
             if (gameManager.score < wheelchair) return;
             count1++;
-            itemBuyCount[1].text = "購入回数:" + count1.ToString() + "回";
             AddObj.SetActive(true);
             gameManager.score -= Mathf.FloorToInt(wheelchair);
             wheelchair += Mathf.FloorToInt(wheelchair * increse1);
@@ -136,7 +131,6 @@ public class ShopManager : MonoBehaviour
         {
             if (gameManager.score < supplement) return;
             count2++;
-            itemBuyCount[2].text = "購入回数:" + count2.ToString() + "回";
             AddObj.SetActive(true);
             gameManager.score -= Mathf.FloorToInt(supplement);
             supplement += Mathf.FloorToInt(supplement * increse2);
@@ -160,7 +154,6 @@ public class ShopManager : MonoBehaviour
         {
             if (gameManager.score < money) return;
             count3++;
-            itemBuyCount[3].text = "購入回数:" + count3.ToString() + "回";
             AddObj.SetActive(true);
             gameManager.score -= Mathf.FloorToInt(money);
             money += Mathf.FloorToInt(money * increse3);
@@ -181,5 +174,12 @@ public class ShopManager : MonoBehaviour
                 Instantiate(itemPrefab[3], new Vector2(x, y), Quaternion.identity);
             }
         });
+    }
+    public void BuyCount()
+    {
+        itemBuyCount[0].text = "購入回数:" + count.ToString() + "回";
+        itemBuyCount[1].text = "購入回数:" + count1.ToString() + "回";
+        itemBuyCount[2].text = "購入回数:" + count2.ToString() + "回";
+        itemBuyCount[3].text = "購入回数:" + count3.ToString() + "回";
     }
 }
