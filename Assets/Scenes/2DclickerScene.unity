@@ -3179,6 +3179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2055863477}
+  shopManager: {fileID: 1594913111}
   autoAdd: {fileID: 334372032}
   autoObj: {fileID: 334372031}
   backGroundObj: {fileID: 789370803}
@@ -3203,6 +3204,7 @@ MonoBehaviour:
   - {fileID: 103505762}
   - {fileID: 563451633}
   - {fileID: 1424689383}
+  goldHeart: {fileID: 5508763032786247093, guid: e81fc53d0b5b06f41877af09d70125f3, type: 3}
   gatyaPrice: 1000
 --- !u!4 &1374605881
 Transform:
@@ -4272,10 +4274,14 @@ MonoBehaviour:
   - {fileID: 1844101248649568148, guid: 0649df42434e3b946aafc3314e59a8f9, type: 3}
   - {fileID: 829498981597322478, guid: b8e88bc61bf26b44e9d84dc7d4131f8c, type: 3}
   - {fileID: 4766404924889398717, guid: 8d2a57e84368cc246815fed89eb499c7, type: 3}
-  count: 0
-  count1: 0
-  count2: 0
-  count3: 0
+  levelCount: 0
+  levelCount1: 0
+  levelCount2: 0
+  levelCount3: 0
+  increse: 1
+  increse1: 1
+  increse2: 1
+  increse3: 1
   auto: 1
   auto1: 1
   auto2: 1
