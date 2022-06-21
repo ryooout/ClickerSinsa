@@ -7,30 +7,32 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField]GameManager gameManager = default;
+    [SerializeField] GameManager gameManager = default;
     [SerializeField] AutoAdd autoAdd = default;
     [SerializeField] GameObject AddObj = default;
     [SerializeField] ShopManager shopManager = default;
+    [SerializeField] GatyaManager gatyaManager = default;
     /// <summary>値のロード </summary>
     void Start()
     {
         Debug.Log("ロード");
-        gameManager.score = PlayerPrefs.GetInt("SCORE", 0);
-        autoAdd.number = PlayerPrefs.GetInt("NUMBER", 0);
-        shopManager.levelCount = PlayerPrefs.GetInt("COUNT", 0);
-        shopManager.levelCount1 = PlayerPrefs.GetInt("COUNT1", 0);
-        shopManager.levelCount2 = PlayerPrefs.GetInt("COUNT2", 0);
-        shopManager.levelCount3 = PlayerPrefs.GetInt("COUNT3", 0);
-        gameManager.delete = PlayerPrefs.GetFloat("DELETE",1.0f);
-        shopManager.cane = PlayerPrefs.GetFloat("SHOP", 10);
-        shopManager.wheelchair = PlayerPrefs.GetFloat("SHOP1", 100);
-        shopManager.supplement = PlayerPrefs.GetFloat("SHOP2", 1000);
-        shopManager.money = PlayerPrefs.GetFloat("SHOP3",5000);
-        shopManager.inc = PlayerPrefs.GetFloat("INC", 0);
-        shopManager.inc1 = PlayerPrefs.GetFloat("INC1", 0);
-        shopManager.inc2 = PlayerPrefs.GetFloat("INC2", 0);
-        shopManager.inc3 = PlayerPrefs.GetFloat("INC3", 0);
-        shopManager.inc4 = PlayerPrefs.GetFloat("INC4", 0);
+        gameManager.score = PlayerPrefs.GetInt("SCORE", gameManager.score);
+        autoAdd.number = PlayerPrefs.GetInt("NUMBER", autoAdd.number);
+        shopManager.levelCount = PlayerPrefs.GetInt("COUNT", shopManager.levelCount);
+        shopManager.levelCount1 = PlayerPrefs.GetInt("COUNT1", shopManager.levelCount1);
+        shopManager.levelCount2 = PlayerPrefs.GetInt("COUNT2", shopManager.levelCount2);
+        shopManager.levelCount3 = PlayerPrefs.GetInt("COUNT3", shopManager.levelCount3);
+        gameManager.delete = PlayerPrefs.GetFloat("DELETE",gameManager.delete);
+        shopManager.cane = PlayerPrefs.GetFloat("SHOP", shopManager.cane);
+        shopManager.wheelchair = PlayerPrefs.GetFloat("SHOP1", shopManager.wheelchair);
+        shopManager.supplement = PlayerPrefs.GetFloat("SHOP2", shopManager.supplement);
+        shopManager.money = PlayerPrefs.GetFloat("SHOP3",shopManager.money);
+        shopManager.inc = PlayerPrefs.GetFloat("INC", shopManager.inc);
+        shopManager.inc1 = PlayerPrefs.GetFloat("INC1", shopManager.inc1);
+        shopManager.inc2 = PlayerPrefs.GetFloat("INC2", shopManager.inc2);
+        shopManager.inc3 = PlayerPrefs.GetFloat("INC3", shopManager.inc3);
+        shopManager.inc4 = PlayerPrefs.GetFloat("INC4", shopManager.inc4);
+        gatyaManager.gatyaPrice = PlayerPrefs.GetInt("GATYA", gatyaManager.gatyaPrice);
         if (autoAdd.number > 0)
         {
             AddObj.SetActive(true);
@@ -55,6 +57,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetFloat("INC2", shopManager.inc2);
         PlayerPrefs.SetFloat("INC3", shopManager.inc3);
         PlayerPrefs.SetFloat("INC4", shopManager.inc4);
+        PlayerPrefs.SetInt("GATYA", gatyaManager.gatyaPrice);
         PlayerPrefs.Save();
         Debug.Log("セーブ");
     }
@@ -71,16 +74,17 @@ public class SaveManager : MonoBehaviour
         gameManager.delete = 1.0f;
         shopManager.cane = 10;
         shopManager.wheelchair = 100;
-        shopManager.supplement = 1000;
-        shopManager.money = 5000;
+        shopManager.supplement = 900;
+        shopManager.money = 2000;
         shopManager.levelCount = 0;
         shopManager.levelCount1 = 0;
         shopManager.levelCount2 = 0;
         shopManager.levelCount3 = 0;
-        shopManager.inc = 0;
-        shopManager.inc1 = 0;
-        shopManager.inc2 = 0;
-        shopManager.inc3 = 0;
-        shopManager.inc4 = 0;
+        shopManager.inc = 1;
+        shopManager.inc1 = 1;
+        shopManager.inc2 = 1;
+        shopManager.inc3 = 1;
+        shopManager.inc4 = 1;
+        gatyaManager.gatyaPrice = 1000;
     }
 }
