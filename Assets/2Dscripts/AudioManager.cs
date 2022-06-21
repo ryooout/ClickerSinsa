@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(sound);
     }
+
     public void SE2()
     {
         audioSource.PlayOneShot(sound1);
