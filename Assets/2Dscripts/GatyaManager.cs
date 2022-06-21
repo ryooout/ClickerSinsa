@@ -21,7 +21,7 @@ public class GatyaManager : MonoBehaviour
     [SerializeField,Header("ガチャから出るヅラ")] GameObject[] katuraPrefab = default;
     [SerializeField,Header("ハズレ")] RawImage hazureText = default;
     [SerializeField,Header("ガチャの開閉")] Button[] gatyaButton = default;
-    [SerializeField,Header("ガチャの結果")] Text[] gatyaResultText = default;
+    [SerializeField,Header("ガチャの当たりの結果")] Text[] gatyaResultText = default;
     [SerializeField,Header("極稀に出るハート")]GameObject goldHeart = default;
     [SerializeField,Header("レベルアップ")] RawImage levelUpText = default;
     /// <summary>ガチャを開く </summary>
@@ -38,6 +38,7 @@ public class GatyaManager : MonoBehaviour
     float gatyaIncrese2 = 1;
     float gatyaIncrese3 = 1;
     float _double = 1.05f;
+    [SerializeField,Header("ガチャの値段")]
     public int gatyaPrice = 1000;
     GameObject katura = default;
     GameObject timerObj = default;
