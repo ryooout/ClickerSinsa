@@ -23,6 +23,7 @@ public class GatyaManager : MonoBehaviour
     [SerializeField] GameObject heart = default;
     /// <summary>ガチャから出るもの</summary>
     [SerializeField] GameObject[] katuraPrefab = default;
+    [SerializeField] RawImage hazureText = default;
     /// <summary>ガチャ操作のボタン</summary>
     [SerializeField] Button[] gatyaButton = default;
     /// <summary>ガチャ結果</summary>
@@ -31,6 +32,8 @@ public class GatyaManager : MonoBehaviour
     [SerializeField]GameObject goldHeart = default;
     /// <summary>レベルアップ通知</summary>
     [SerializeField] RawImage levelUpText = default;
+    /// <summary>ガチャを開く </summary>
+    /// 
     int i;
     /// <summary>1秒あたりの値の増加量</summary>
     int i0 = 20;
@@ -48,6 +51,8 @@ public class GatyaManager : MonoBehaviour
     GameObject timerObj = default;
     float x;
     float y;
+    float x1;
+    float y1;
     private void Awake()
     {
         gatyaAudioSource = GetComponent<AudioSource>();
@@ -67,31 +72,55 @@ public class GatyaManager : MonoBehaviour
     {
         x = Random.Range(-10, 10);
         y = Random.Range(-4,4);
+        x1 = Random.Range(-10, 10);
+        y1 = Random.Range(-4, 4);
         random = Random.Range(1, 6);
-        i = Random.Range(0, katuraPrefab.Length);
+        i = Random.Range(0, katuraPrefab.Length+1);
         gatyaPriceText.text = "       " + "ガチャ\n親密度:" + gatyaPrice + "爺";
+    }
+   public void GatyaBuyClick()
+    {
+        if(i==0&&timerObj.activeSelf)
+        {
+            gatyaResultText[0].gameObject.SetActive(true);
+        }
+        else if (i == 1 && timerObj.activeSelf)
+        {
+            gatyaResultText[1].gameObject.SetActive(true);
+        }
+        else if (i == 2 && timerObj.activeSelf)
+        {
+            gatyaResultText[2].gameObject.SetActive(true);
+        }
+        else if (i == 3 && timerObj.activeSelf)
+        {
+            gatyaResultText[3].gameObject.SetActive(true);
+        }
     }
     public void GatyaClick()
     { 
         if (gameManager.score >= 1000&&!timerObj.activeSelf)
         {
-            levelUpText.gameObject.SetActive(true);
             gatyaTimer.gameObject.SetActive(true);
             notRotate.gameObject.SetActive(false);
-            heart.SetActive(true);
+           /* heart.SetActive(true);
             backGroundObj.SetActive(true);
             gatyaAudioSource.PlayOneShot(gatyaSound[0]);
-            gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
+            gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;*/
            katura = Instantiate(katuraPrefab[i], new Vector2(0, 3), Quaternion.identity);
             gameManager.score -= gatyaPrice;
             gatyaPrice += Mathf.FloorToInt(100*_double);
             _double += 0.01f;
             if (timerObj.activeSelf)
             {
-                gameManager.delete += 1.0f;
-                autoObj.SetActive(true);
                 if (i==0)//black
                 {
+                    heart.SetActive(true);
+                    backGroundObj.SetActive(true);
+                    gatyaAudioSource.PlayOneShot(gatyaSound[0]);
+                    gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
+                    gameManager.delete += 3.0f;
+                    autoObj.SetActive(true);
                     levelUpText.gameObject.SetActive(true);
                     Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i0*gatyaIncrese);
@@ -106,9 +135,19 @@ public class GatyaManager : MonoBehaviour
                     shopManager.inc2 += 0.75f;
                     shopManager.inc3 += 0.85f;
                     shopManager.inc4 += 0.95f;
+                    if(shopManager.levelCount%5 ==0)
+                    {
+                        Instantiate(shopManager.itemPrefab[0],new Vector2(x,y),Quaternion.identity);
+                    }
                 }
                 else if (i == 1)//gold
                 {
+                    heart.SetActive(true);
+                    backGroundObj.SetActive(true);
+                    gatyaAudioSource.PlayOneShot(gatyaSound[0]);
+                    gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
+                    gameManager.delete += 3.0f;
+                    autoObj.SetActive(true);
                     levelUpText.gameObject.SetActive(true);
                     Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i1*gatyaIncrese1);
@@ -123,9 +162,19 @@ public class GatyaManager : MonoBehaviour
                     shopManager.inc2 += 0.85f;
                     shopManager.inc3 += 0.90f;
                     shopManager.inc4 += 1.0f;
+                    if (shopManager.levelCount1 % 5 == 0)
+                    {
+                        Instantiate(shopManager.itemPrefab[1], new Vector2(x, y), Quaternion.identity);
+                    }
                 }
                 else if (i == 2)//short
                 {
+                    heart.SetActive(true);
+                    backGroundObj.SetActive(true);
+                    gatyaAudioSource.PlayOneShot(gatyaSound[0]);
+                    gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
+                    gameManager.delete += 3.0f;
+                    autoObj.SetActive(true);
                     levelUpText.gameObject.SetActive(true);
                     Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i2*gatyaIncrese2);
@@ -141,9 +190,19 @@ public class GatyaManager : MonoBehaviour
                     shopManager.inc2 += 0.95f;
                     shopManager.inc3 += 1.0f;
                     shopManager.inc4 += 1.15f;
+                    if (shopManager.levelCount2 % 5 == 0)
+                    {
+                        Instantiate(shopManager.itemPrefab[2], new Vector2(x, y), Quaternion.identity);
+                    }
                 }               
                 else if(i == 3)//short2
                 {
+                    heart.SetActive(true);
+                    backGroundObj.SetActive(true);
+                    gatyaAudioSource.PlayOneShot(gatyaSound[0]);
+                    gatyaPrefab.GetComponent<Renderer>().material.color = Color.magenta;
+                    gameManager.delete += 3.0f;
+                    autoObj.SetActive(true);
                     levelUpText.gameObject.SetActive(true);
                     Invoke(nameof(LevelUp), 2.0f);
                     autoAdd.gatyaNumber += Mathf.FloorToInt(i3*gatyaIncrese3);
@@ -160,13 +219,24 @@ public class GatyaManager : MonoBehaviour
                     shopManager.inc2 += 1.0f;
                     shopManager.inc3 += 1.15f;
                     shopManager.inc4 += 1.25f;
+                    if (shopManager.levelCount3 % 5 == 0)
+                    {
+                        Instantiate(shopManager.itemPrefab[3], new Vector2(x, y), Quaternion.identity);
+                    }
+                }
+                else if(i==4||i==5)
+                {
+                    gatyaTimer.gameObject.SetActive(false);
+                    hazureText.gameObject.SetActive(true);
+                    Invoke(nameof(LevelUp), 2.0f);
+                    gatyaAudioSource.PlayOneShot(gatyaSound[2]);
                 }
                 Invoke(nameof(Generater), 10.0f);
-                if(random==3)
+                if(random==3&&!(i ==4||i==5))
                 {
-                   var obj = Instantiate(goldHeart,new Vector2(x,y),Quaternion.identity);
+                   var obj = Instantiate(goldHeart,new Vector2(x1,y1),Quaternion.identity);
                     Destroy(obj, 10.0f);
-                }
+                }      
             }
         }        
         else if(gameManager.score < 1000||timerObj.activeSelf)
@@ -219,6 +289,7 @@ public class GatyaManager : MonoBehaviour
     }
     void LevelUp()
     {
+        hazureText.gameObject.SetActive(false);
         levelUpText.gameObject.SetActive(false);
     }
 }
