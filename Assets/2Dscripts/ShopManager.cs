@@ -18,9 +18,9 @@ public class ShopManager : MonoBehaviour
     /// <summary>ŽÔ‚¢‚·</summary>
     public float wheelchair = 100;
     /// <summary>ƒTƒvƒŠ</summary>
-    public float supplement = 1000;
+    public float supplement = 900;
     /// <summary>‚¨‹à</summary>
-    public float money = 5000;
+    public float money = 2000;
     public GameObject[] itemPrefab = default;
     public int levelCount = 0;
     public int levelCount1 = 0;
@@ -97,10 +97,10 @@ public class ShopManager : MonoBehaviour
             gameManager.score -= Mathf.FloorToInt(cane);
             cane += Mathf.FloorToInt(cane*increse);
             autoAdd.number += Mathf.FloorToInt((1 * auto)+1);
-            inc  += 1.50f;
-            inc1 += 1.65f;
-            inc2 += 1.75f;
-            inc3 += 1.85f;
+            inc  += 2.4f;
+            inc1 += 3.5f;
+            inc2 += 4.1f;
+            inc3 += 5.2f;
             inc4 += 1.95f;
             /*Instantiate(itemPrefab[0],new Vector2(x0,y0),Quaternion.identity);
             if (x0 >= 12.0f)
@@ -120,10 +120,10 @@ public class ShopManager : MonoBehaviour
             gameManager.score -= Mathf.FloorToInt(wheelchair);
             wheelchair += Mathf.FloorToInt(wheelchair * increse1);
             autoAdd.number += Mathf.FloorToInt((3 * auto1)+2);
-            inc += 1.65f;
-            inc1 += 1.75f;
-            inc2 += 1.85f;
-            inc3 += 1.90f;
+            inc += 2.7f;
+            inc1 += 3.8f;
+            inc2 += 4.9f;
+            inc3 += 6.0f;
             inc4 += 2.0f;
             /*Instantiate(itemPrefab[1], new Vector2(x1, y1), Quaternion.identity);
             if (x1 >= 12.0f)
@@ -144,10 +144,10 @@ public class ShopManager : MonoBehaviour
             supplement += Mathf.FloorToInt(supplement * increse2);            
             autoAdd.number += Mathf.FloorToInt((5 * auto2)+3);
             gameManager.delete += 0.3f;
-            inc += 1.75f;
-            inc1 += 1.85f;
-            inc2 += 1.95f;
-            inc3 += 2.0f;
+            inc += 3.5f;
+            inc1 += 5.4f;
+            inc2 += 7.5f;
+            inc3 += 8.2f;
             inc4 += 2.15f;
             if (levelCount2 % 5 == 0)
             {
@@ -169,10 +169,10 @@ public class ShopManager : MonoBehaviour
             autoAdd.number += Mathf.FloorToInt((15 * auto3)+4);
             gameManager.delete += 0.7f;
             gameManager.AddScore(350);
-            inc += 1.85f;
-            inc1 += 1.95f;
-            inc2 += 2.0f;
-            inc3 += 2.15f;
+            inc += 5.3f;
+            inc1 += 7.4f;
+            inc2 += 9.5f;
+            inc3 += 11.4f;
             inc4 += 2.25f;
             /*Instantiate(itemPrefab[3], new Vector2(x3, y3), Quaternion.identity);           
             if(x3 >= 12.0f)
