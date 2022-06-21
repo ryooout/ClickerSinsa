@@ -5,40 +5,33 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] GameManager gameManager = default;
-    [SerializeField] AutoAdd autoAdd = default;
-    /// <summary>アイテムボタン一覧</summary>
-    public Button[] shopButton = default;
-    /// <summary>shopのopen,close</summary>
-    [SerializeField] GameObject[] shopOpen = default;
+    [SerializeField,Header("アイテムのボタン")]public Button[] shopButton = default;
+    [SerializeField,Header("shopのopen,close")] GameObject[] shopOpen = default;
+    [SerializeField,Header("自動加算")] AutoAdd autoAdd = default;
     [SerializeField] GameObject AddObj = default;
-    /// <summary>購入回数</summary>
-    [SerializeField] Text[] itemBuyCount = default;
-    /// <summary>杖</summary>
-    public float cane = 10;
-    /// <summary>車いす</summary>
-    public float wheelchair = 100;
-    /// <summary>サプリ</summary>
-    public float supplement = 900;
-    /// <summary>お金</summary>
-    public float money = 2000;
-    public GameObject[] itemPrefab = default;
+    [SerializeField,Header("アイテム購入回数")] Text[] itemBuyCount = default;
+    [SerializeField,Header("杖")]public float cane = 10;
+    [SerializeField, Header("車いす")] public float wheelchair = 100;
+    [SerializeField, Header("サプリ")] public float supplement = 900;
+    [SerializeField, Header("お年玉")] public float money = 2000;
+    [SerializeField,Header("アイテム")]public GameObject[] itemPrefab = default;
+    [SerializeField,Header("レベルアップのカウント")]
     public int levelCount = 0;
     public int levelCount1 = 0;
     public int levelCount2 = 0;
     public int levelCount3 = 0;
-     /// <summary>値段上昇 </summary>
+    [SerializeField,Header("値段の上昇")]
     public float increse =  1;
     public float increse1 = 1;
     public float increse2 = 1;
     public float increse3 = 1;
-    /// <summary>値自動加算</summary>
+    [SerializeField,Header("値の自動加算")]
     public float auto = 1;
     public float auto1 = 1;
     public float auto2 = 1;
     public float auto3 = 1;
-    float x;
-    float y;
-    /// <summary>おじさんをクリックしたときの値上昇 </summary>
+    float x,y;
+    [SerializeField,Header("おじさんをクリックしたときの値上昇")]
     public float inc = 1;
     public float inc1 = 1;
     public float inc2 = 1;

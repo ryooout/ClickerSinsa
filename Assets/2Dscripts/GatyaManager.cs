@@ -6,32 +6,24 @@ public class GatyaManager : MonoBehaviour
 {
     [SerializeField]GameManager gameManager = default;
     [SerializeField]ShopManager shopManager = default;
-    [SerializeField] AutoAdd autoAdd = default;
+    [SerializeField,Header("自動加算")] AutoAdd autoAdd = default;
     [SerializeField] GameObject autoObj = default;
-    [SerializeField] GameObject backGroundObj = default;
-    [SerializeField]GameObject  gatyaPrefab = default;
-    /// <summary>効果時間</summary>
-    public Text gatyaTimer = default;
-    [SerializeField] Text notRotate = default;
-    /// <summary>ガチャの値段表示 </summary>
-    [SerializeField] Text gatyaPriceText = default;
-    /// <summary>効果音 </summary>
+    [SerializeField,Header("背景")] GameObject backGroundObj = default;
+    [SerializeField,Header("ガチャ本体")]GameObject  gatyaPrefab = default;
+    [SerializeField,Header("ガチャの効果時間を表示")]public Text gatyaTimer = default;
+    [SerializeField,Header("ガチャが回せないときに表示")] Text notRotate = default;
+    [SerializeField,Header("ガチャの値段を表示")]　Text gatyaPriceText = default;
     AudioSource gatyaAudioSource = null;
-    /// <summary>ガチャ中の音</summary>
-    public AudioClip[]gatyaSound = default;
+    [SerializeField,Header("ガチャ中の音")]public AudioClip[]gatyaSound = default;
     /// <summary>ハート型のオブジェクト </summary>
-    [SerializeField] GameObject heart = default;
+    [SerializeField,Header("当たりのときに出る")] GameObject heart = default;
     /// <summary>ガチャから出るもの</summary>
-    [SerializeField] GameObject[] katuraPrefab = default;
-    [SerializeField] RawImage hazureText = default;
-    /// <summary>ガチャ操作のボタン</summary>
-    [SerializeField] Button[] gatyaButton = default;
-    /// <summary>ガチャ結果</summary>
-    [SerializeField] Text[] gatyaResultText = default;
-    /// <summary>黄金のハート</summary>
-    [SerializeField]GameObject goldHeart = default;
-    /// <summary>レベルアップ通知</summary>
-    [SerializeField] RawImage levelUpText = default;
+    [SerializeField,Header("ガチャから出るヅラ")] GameObject[] katuraPrefab = default;
+    [SerializeField,Header("ハズレ")] RawImage hazureText = default;
+    [SerializeField,Header("ガチャの開閉")] Button[] gatyaButton = default;
+    [SerializeField,Header("ガチャの結果")] Text[] gatyaResultText = default;
+    [SerializeField,Header("極稀に出るハート")]GameObject goldHeart = default;
+    [SerializeField,Header("レベルアップ")] RawImage levelUpText = default;
     /// <summary>ガチャを開く </summary>
     /// 
     int i;
@@ -49,10 +41,8 @@ public class GatyaManager : MonoBehaviour
     public int gatyaPrice = 1000;
     GameObject katura = default;
     GameObject timerObj = default;
-    float x;
-    float y;
-    float x1;
-    float y1;
+    float x,y;
+    float x1,y1;
     private void Awake()
     {
         gatyaAudioSource = GetComponent<AudioSource>();

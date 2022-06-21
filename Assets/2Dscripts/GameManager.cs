@@ -6,15 +6,15 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     private int i;
-    public float span = 1.5f;
+    [SerializeField,Header("おじさん出現間隔")]public float span = 1.5f;
     private float time;
-    public int score;
-    public float delete = 1.0f;
+    [SerializeField, Header("親密度")] public int score;
+    [SerializeField,Header("おじさんが消滅するまでの時間")]public float delete = 1.0f;
     [SerializeField] ShopManager shop = default;
-    [SerializeField]GameObject[]ojisan = default;
-    [SerializeField] TextMeshProUGUI scoreText = default;
-    public Text[] shopText = default;
-    public GameObject particle = default;
+    [SerializeField,Header("おじさん達")]GameObject[]ojisan = default;
+    [SerializeField,Header("スコア")] TextMeshProUGUI scoreText = default;
+    [SerializeField, Header("ショップ")] public Text[] shopText = default;
+    [SerializeField,Header("パーティクル")]public GameObject particle = default;
     void Update()
     {
         Generation();
