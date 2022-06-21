@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField,Header("おじさん出現間隔")]public float span = 1.5f;
     private float time;
     [SerializeField, Header("親密度")] public int score;
-    [SerializeField,Header("おじさんが消滅するまでの時間")]public float delete = 1.0f;
+    [SerializeField,Header("おじさんが消滅するまでの時間")]public float delete = 1.2f;
     [SerializeField] ShopManager shop = default;
     [SerializeField,Header("おじさん達")]GameObject[]ojisan = default;
     [SerializeField,Header("スコア")] TextMeshProUGUI scoreText = default;
