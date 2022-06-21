@@ -75,7 +75,7 @@ public class GatyaManager : MonoBehaviour
         x1 = Random.Range(-10, 10);
         y1 = Random.Range(-4, 4);
         random = Random.Range(1, 6);
-        i = Random.Range(0, katuraPrefab.Length+1);
+        i = Random.Range(0, katuraPrefab.Length+2);
         gatyaPriceText.text = "       " + "ƒKƒ`ƒƒ\ne–§“x:" + gatyaPrice + "–ê";
     }
    public void GatyaBuyClick()
