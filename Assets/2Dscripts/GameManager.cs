@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     }
     public void AddScore(int addScore)
     {
-        score += addScore;
+        score +=addScore;
         ScoreText(score);
     }
    private void StoreText()
