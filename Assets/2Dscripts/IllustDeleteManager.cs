@@ -18,7 +18,7 @@ public class IllustDeleteManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rand = Random.Range(1.5f, 4.5f);
+        rand = Random.Range(1.5f, 3.5f);
     }
     public void ItemClick()
     {
