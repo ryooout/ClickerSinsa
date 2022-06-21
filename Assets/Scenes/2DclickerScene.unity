@@ -3358,6 +3358,8 @@ MonoBehaviour:
   - {fileID: 6572125928054459837, guid: 60dc189224a7a1146853ede72001aecd, type: 3}
   - {fileID: 3833294938258610660, guid: 071c9b2c05d12b54dbf692f103216531, type: 3}
   - {fileID: 6929488772527475153, guid: 23ec9227a047bed43b1f2a82b07c3921, type: 3}
+  - {fileID: 3225613256377831743, guid: 69907465f36a77e4c91fb11675ab55fb, type: 3}
+  - {fileID: 3225613256377831743, guid: 69907465f36a77e4c91fb11675ab55fb, type: 3}
   hazureText: {fileID: 1343284750}
   gatyaButton:
   - {fileID: 1308382450}
@@ -4414,7 +4416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2055863477}
-  autoAdd: {fileID: 334372032}
   shopButton:
   - {fileID: 1525822194}
   - {fileID: 1295536947}
@@ -4424,6 +4425,7 @@ MonoBehaviour:
   - {fileID: 750240592}
   - {fileID: 1074707261}
   - {fileID: 986433981}
+  autoAdd: {fileID: 334372032}
   AddObj: {fileID: 334372031}
   itemBuyCount:
   - {fileID: 2012342401}
